@@ -14,7 +14,7 @@ export default function BackgroundCircles()
     const baseCircle = useRef();
     const circleProps = {
         amount: 15,
-        radiusGrowStep: 15,
+        radiusGrowStep: 20,
         startRadius: 160,
         animationPause: 500,
         speed: 100
