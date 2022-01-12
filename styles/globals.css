@@ -1,9 +1,13 @@
 html,
 body {
+  color: white;
+  background: #000822;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  overflow-x: hidden;
 }
 
 a {
@@ -13,4 +17,35 @@ a {
 
 * {
   box-sizing: border-box;
+  /*z-index: 1;*/
+}
+
+p{
+  color: #B2B2B2;
+  font-size: 18px;
+  /*word-break: break-word;*/
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  /*padding: 3rem;*/
+  /*padding-top: 4rem;*/
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 3rem;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 1.5rem;
+    padding-top: 4rem;
+  }
+}
+
+.primaryColorSpan{
+  color: #DA22FF;
 }
