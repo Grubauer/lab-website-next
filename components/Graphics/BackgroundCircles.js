@@ -13,11 +13,11 @@ export default function BackgroundCircles()
     const circles = useRef({});
     const baseCircle = useRef();
     const circleProps = {
-        amount: 8,
-        radiusGrowStep: 50,
+        amount: 15,
+        radiusGrowStep: 15,
         startRadius: 160,
-        animationPause: 1000,
-        speed: 200
+        animationPause: 500,
+        speed: 100
     }
     useEffect(() =>
     {
@@ -33,19 +33,22 @@ export default function BackgroundCircles()
             {
                 gsap.to(baseCircle.current, {
                     duration: 2,
-                    r: circleProps.startRadius + circleProps.radiusGrowStep * 2,
+                    r: circleProps.startRadius + circleProps.radiusGrowStep ,
+                    opacity: 0.1,
                     ease: "power2.inOut"
                 });
             }
             else{
                 gsap.to(baseCircle.current, {
                     duration: 2,
-                    r: circleProps.startRadius + circleProps.radiusGrowStep ,
+                    r: circleProps.startRadius + circleProps.radiusGrowStep * 2,
+                    opacity: 1,
                     ease: "power2.inOut"
                 });
             }
             baseCircleStateBig = !baseCircleStateBig;
         }
+        moveBaseCircle();
         setInterval(async () =>
         {
             const keys = Object.keys(circles.current);
@@ -55,7 +58,6 @@ export default function BackgroundCircles()
             }
             else if(counter < keys.length)
             {
-
                 const circle = circles.current[keys[counter]];
                 console.log(circle);
                 if(circle)
@@ -105,18 +107,19 @@ export default function BackgroundCircles()
     }, [])
 
     return <Svg  viewBox="0 0 1092 1199" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle ref={el => baseCircle.current = el}  cx="630" cy="569" r="275" fill="url(#paint0_linear_300_55)"/>
+        <circle opacity={0.1} ref={el => baseCircle.current = el}  cx="630" cy="569" r={circleProps.startRadius + 20} fill="url(#paint0_linear_300_55)"/>
         {[...Array(circleProps.amount)].map((_, i) =>
             <circle
                 style={{display: i === 0 ? "none" : "block"}}
                 key={circleProps.startRadius + circleProps.radiusGrowStep * (i+1)}
-                opacity={1-(i+1)/circleProps.amount}
+                // opacity={1-(i+1)/circleProps.amount}
+                opacity={0.1}
                 cx={630}
                 cy={569}
                 r={circleProps.startRadius + (i + 1) * circleProps.radiusGrowStep}
                 strokeWidth="10"
                 ref={el => circles.current[circleProps.startRadius + circleProps.radiusGrowStep * (i+1)] = el}
-                stroke={`url(#paint${i+1}_linear_300_55)`}/>
+                stroke={`url(#paint1_linear_300_55)`}/>
         )}
         {/*<circle opacity="0.7" cx="630" cy="569" r="325" stroke="url(#paint1_linear_300_55)" stroke-width="10"/>*/}
         {/*<circle opacity="0.6" cx="630" cy="569" r="375" stroke="url(#paint2_linear_300_55)" stroke-width="10"/>*/}
