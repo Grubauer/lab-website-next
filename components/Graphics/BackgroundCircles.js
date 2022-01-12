@@ -16,13 +16,36 @@ export default function BackgroundCircles()
         amount: 8,
         radiusGrowStep: 50,
         startRadius: 160,
-        animationPause: 1000
+        animationPause: 1000,
+        speed: 200
     }
     useEffect(() =>
     {
         let growMode = true;
         let counter = 0;
         let pause = false;
+
+        let baseCircleStateBig = false;
+
+        function moveBaseCircle()
+        {
+            if(baseCircleStateBig)
+            {
+                gsap.to(baseCircle.current, {
+                    duration: 2,
+                    r: circleProps.startRadius + circleProps.radiusGrowStep * 2,
+                    ease: "power2.inOut"
+                });
+            }
+            else{
+                gsap.to(baseCircle.current, {
+                    duration: 2,
+                    r: circleProps.startRadius + circleProps.radiusGrowStep ,
+                    ease: "power2.inOut"
+                });
+            }
+            baseCircleStateBig = !baseCircleStateBig;
+        }
         setInterval(async () =>
         {
             const keys = Object.keys(circles.current);
@@ -32,7 +55,9 @@ export default function BackgroundCircles()
             }
             else if(counter < keys.length)
             {
+
                 const circle = circles.current[keys[counter]];
+                console.log(circle);
                 if(circle)
                 {
                     if(growMode)
@@ -40,6 +65,7 @@ export default function BackgroundCircles()
                         gsap.to(circle, {
                             duration: 2,
                             r: +keys[counter] + circleProps.radiusGrowStep,
+                            opacity: 1 - counter / keys.length,
                             ease: "power2.inOut"
                         });
                         // console.log();##
@@ -50,6 +76,7 @@ export default function BackgroundCircles()
                         gsap.to(circle, {
                             duration: 2,
                             r: +keys[counter],
+                            opacity: 0.1,
                             ease: "power2.inOut"
                         });
                     }
@@ -60,19 +87,28 @@ export default function BackgroundCircles()
                 growMode = !growMode;
                 counter = 0;
                 pause = true;
+                // moveBaseCircle();
                 await new Promise(resolve => setTimeout(() => {
                     pause = false;
+                    moveBaseCircle();
                     resolve();
                 }, circleProps.animationPause));
             }
             counter++;
-        }, 200)
+        }, circleProps.speed);
+
+
+        // setInterval(() => {
+        //     console.log(baseCircle.current)
+        //
+        // }, circleProps.speed * circleProps.amount * 2);
     }, [])
 
     return <Svg  viewBox="0 0 1092 1199" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle ref={el => baseCircle.current = el}  cx="630" cy="569" r="275" fill="url(#paint0_linear_300_55)"/>
         {[...Array(circleProps.amount)].map((_, i) =>
             <circle
+                style={{display: i === 0 ? "none" : "block"}}
                 key={circleProps.startRadius + circleProps.radiusGrowStep * (i+1)}
                 opacity={1-(i+1)/circleProps.amount}
                 cx={630}
