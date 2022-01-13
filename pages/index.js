@@ -6,6 +6,7 @@ import { Tween, Timeline } from 'react-gsap';
 import Hero from "../components/Sections/Hero";
 import CustomerBar from "../components/Sections/CustomerBar";
 import {PhoneAnimation} from "../components/MagicMaxi/PhoneAnimation";
+import ProjectOverview from "../components/Sections/ProjectOverview";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
           <Hero />
           <CustomerBar/>
+          <ProjectOverview/>
       </main>
     </div>
   )

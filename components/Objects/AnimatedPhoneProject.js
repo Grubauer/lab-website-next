@@ -11,6 +11,7 @@ const AnimationContainer = styled.div`
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    position: relative;
    
 
 `
@@ -74,23 +75,35 @@ const ProjectDescription = styled.p`
 //     background: ${props => props.theme.colors.primary};
 // `
 
-export function AnimatedPhoneProject({project, img_count, onPhoneHovered})
+export function AnimatedPhoneProject({project, img_count, onPhoneHovered, canvasId})
 {
 
     const [hovered, setHovered] = React.useState(false)
 
+    let titleAnimation;
+    let descriptionAnimation;
     useEffect(()=> {
         onPhoneHovered && onPhoneHovered(hovered);
+
+        if(titleAnimation)
+        {
+            titleAnimation.kill();
+        }
+        if(descriptionAnimation)
+        {
+            descriptionAnimation.kill();
+        }
         if(hovered)
         {
-            gsap.to("h3", {duration: 1, color: "#fff", top: "50%", opacity: 1, ease: "power3.out", delay: 0.6});
-            gsap.to("#projectDescription", {duration: 1, top: "50%", opacity: 1, ease: "power3.out", delay: 1});
+            titleAnimation = gsap.to("#projectTitle" + canvasId, {duration: 1, color: "#fff", top: "50%", opacity: 1, ease: "power3.out", delay: 0.6});
+            descriptionAnimation = gsap.to("#projectDescription" + canvasId, {duration: 1, top: "50%", opacity: 1, ease: "power3.out", delay: 1});
             // gsap.to("#projectHint", {duration: 1, top: "50%", opacity: 1, ease: "power3.out", delay: 1.4});
 
         }
         else{
-            gsap.to("h3", {duration: 1, top: "-50%", opacity: 0, ease: "power3.out", delay: 0});
-            gsap.to("#projectDescription", {duration: 1, opacity: 0, ease: "power3.out", delay: 0});
+
+            titleAnimation = gsap.to("#projectTitle" + canvasId, {duration: 1, top: "-50%", opacity: 0, ease: "power3.out", delay: 0});
+            descriptionAnimation = gsap.to("#projectDescription" + canvasId, {duration: 1, opacity: 0, ease: "power3.out", delay: 0});
             // gsap.to("#projectHint", {duration: 1, top: "50%", opacity: 0, ease: "power3.out", delay: 0});
         }
     }, [hovered])
@@ -120,20 +133,17 @@ export function AnimatedPhoneProject({project, img_count, onPhoneHovered})
     }
 
     const randomProjectIndex = Math.floor(Math.random() * Object.keys(projects).length);
-    const activeProject = projects[Object.keys(projects)[randomProjectIndex]];
+    const activeProject = projects[project ? project : Object.keys(projects)[randomProjectIndex]];
 
-    return <AnimationContainer onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-        <PhoneAnimation activeProject={activeProject} style={{height: "60%"}} />
+    return <AnimationContainer >
+        <PhoneAnimation onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} style={{height: "60%"}} />
         <TextOverlay>
             <ProjectTitleWrapper>
-                <ProjectTitle>{activeProject.title}</ProjectTitle>
+                <ProjectTitle id={"projectTitle" + canvasId}>{activeProject.title}</ProjectTitle>
             </ProjectTitleWrapper>
-            <ProjectDescription id="projectDescription">
+            <ProjectDescription id={"projectDescription" + canvasId}>
                 {activeProject.description}
             </ProjectDescription>
-            {/*<StyledButton id="projectHint">*/}
-            {/*    erfahre mehr*/}
-            {/*</StyledButton>*/}
         </TextOverlay>
 
     </AnimationContainer>

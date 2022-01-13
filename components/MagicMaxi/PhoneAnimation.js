@@ -13,7 +13,7 @@ const Canvas = styled.canvas`
     }
 `
 
-export function PhoneAnimation({activeProject, speed = 25, img_count = 26, ...rest}) {
+export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canvasId, ...rest}) {
 
     const animationsFolderPath= "/assets/animationFrames/projects"
 
@@ -23,9 +23,9 @@ export function PhoneAnimation({activeProject, speed = 25, img_count = 26, ...re
         for (let i = 1; i < img_count + 1; i++) {
             filenames.push(`${activeProject.imageNameWithoutIndex} ${i}.png`);
         }
-        const magicMaxiHover = new MagicMaxi("phoneAnimCanvas",  animationsFolderPath + "/" + activeProject.folderName, filenames, MagicMaxi.modes.HOVER, {speed})
+        const magicMaxiHover = new MagicMaxi(canvasId,  animationsFolderPath + "/" + activeProject.folderName, filenames, MagicMaxi.modes.HOVER, {speed})
 
     }, []);
 
-    return <Canvas id="phoneAnimCanvas" height={1000} width={600}  {...rest} />
+    return <Canvas id={canvasId} height={1000} width={600}  {...rest} />
 }
