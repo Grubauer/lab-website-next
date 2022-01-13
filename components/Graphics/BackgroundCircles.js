@@ -13,11 +13,12 @@ export default function BackgroundCircles()
     const circles = useRef({});
     const baseCircle = useRef();
     const circleProps = {
-        amount: 15,
-        radiusGrowStep: 20,
-        startRadius: 160,
+        amount: 6,
+        radiusGrowStep: 30,
+        startRadius: 240,
         animationPause: 500,
-        speed: 100
+        speed: 400,
+        circleThickness: 15,
     }
     useEffect(() =>
     {
@@ -32,7 +33,7 @@ export default function BackgroundCircles()
             if(baseCircleStateBig)
             {
                 gsap.to(baseCircle.current, {
-                    duration: 2,
+                    duration: 2 + circleProps.speed / 1000,
                     r: circleProps.startRadius + circleProps.radiusGrowStep ,
                     opacity: 0.1,
                     ease: "power2.inOut"
@@ -40,7 +41,7 @@ export default function BackgroundCircles()
             }
             else{
                 gsap.to(baseCircle.current, {
-                    duration: 2,
+                    duration: 2 + circleProps.speed / 1000,
                     r: circleProps.startRadius + circleProps.radiusGrowStep * 2,
                     opacity: 1,
                     ease: "power2.inOut"
@@ -65,7 +66,7 @@ export default function BackgroundCircles()
                     if(growMode)
                     {
                         gsap.to(circle, {
-                            duration: 2,
+                            duration: 2 + circleProps.speed / 1000,
                             r: +keys[counter] + circleProps.radiusGrowStep,
                             opacity: 1 - counter / keys.length,
                             ease: "power2.inOut"
@@ -76,7 +77,7 @@ export default function BackgroundCircles()
                     }
                     else{
                         gsap.to(circle, {
-                            duration: 2,
+                            duration: 2 + circleProps.speed / 1000,
                             r: +keys[counter],
                             opacity: 0.1,
                             ease: "power2.inOut"
@@ -117,7 +118,7 @@ export default function BackgroundCircles()
                 cx={630}
                 cy={569}
                 r={circleProps.startRadius + (i + 1) * circleProps.radiusGrowStep}
-                strokeWidth="10"
+                strokeWidth={circleProps.circleThickness}
                 ref={el => circles.current[circleProps.startRadius + circleProps.radiusGrowStep * (i+1)] = el}
                 stroke={`url(#paint1_linear_300_55)`}/>
         )}
