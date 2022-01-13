@@ -55,8 +55,7 @@ export class MagicMaxi{
             let oldText = '';
             function updateProgress(image)
             {
-                if(self.showLoadingIndicator)
-                {
+
                     loadedImages++;
                     const progress = Math.round((loadedImages / self.imgAmount) * 100) + '%';
                     if(!firstImage && !self.options.startFrameIndex){
@@ -67,13 +66,15 @@ export class MagicMaxi{
                     {
                         self.clearCanvas();
                         self.drawImage(firstImage);
+                        if(self.showLoadingIndicator)
+                        {
                         self.ctx.fillText(progress, self.canvas.width/2, self.canvas.height/2);
+                        }
                     }
-                }
-                else if(!firstImage && !self.showFirstImageWhenLoaded){
-                    firstImage = image.img;
-                    self.drawImage(firstImage);
-                }
+                // else if(!firstImage && !self.showFirstImageWhenLoaded){
+                //     firstImage = image.img;
+                //     self.drawImage(firstImage);
+                // }
             }
             rxjs.forkJoin(
                 self.imageFileNames.map((filename, i) => {
