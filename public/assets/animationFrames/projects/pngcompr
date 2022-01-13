@@ -1,0 +1,7 @@
+#!/bin/bash
+mkdir crushed
+# uncomment following line for more aggressive but longer compression
+# pngcrush_options=-reduce -brute -l9
+find . -name '*.png' -print | while read f; do
+  pngcrush $pngcrush_options "$f" ./crushed/"$f"
+done

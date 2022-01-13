@@ -30,7 +30,6 @@ export class MagicMaxi{
     async init(){
 
         const self = this;
-        console.log('window loaded')
         // window.addEventListener('load', function(){
 
             self.ctx = self.canvas.getContext('2d');
@@ -68,7 +67,6 @@ export class MagicMaxi{
                     {
                         self.clearCanvas();
                         self.drawImage(firstImage);
-                        console.log(progress)
                         if(self.showLoadingIndicator)
                         {
 
