@@ -16,7 +16,7 @@ const Nav = styled.nav`
   gap: 10%;
   
   ${regularMobileMediaQuery} {
-    padding: 4rem 1.5rem;
+    padding: 1.5rem 1.5rem;
   }
 `
 

@@ -71,7 +71,7 @@ export default function PhonerenderWithBackgroundCircles() {
         </BackgroundCircleWrapper>
         <ImageWrapper>
             {/*<Image alt={"Iphone with Juksel-App inside"} src={"/assets/juksel_render.png"} layout={"fill"} objectFit={"contain"}/>*/}
-            <AnimatedPhoneProject canvasId={"heroCanvas"} project={"juksel"} style={{height: "70%"}} onPhoneHovered={setPhoneHovered}/>
+            <AnimatedPhoneProject canvasId={"heroCanvas"}  style={{height: "70%"}} onPhoneHovered={setPhoneHovered}/>
         </ImageWrapper>
         </Container>
         </ContainerWrapper>

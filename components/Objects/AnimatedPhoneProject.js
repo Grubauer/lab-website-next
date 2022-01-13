@@ -136,8 +136,8 @@ export function AnimatedPhoneProject({project, img_count, onPhoneHovered, canvas
     const activeProject = projects[project ? project : Object.keys(projects)[randomProjectIndex]];
 
     return <AnimationContainer >
-        <PhoneAnimation onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} style={{height: "60%"}} />
-        <TextOverlay>
+        <PhoneAnimation onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} />
+        <TextOverlay style={{display: hovered ? "flex" : "none"}}>
             <ProjectTitleWrapper>
                 <ProjectTitle id={"projectTitle" + canvasId}>{activeProject.title}</ProjectTitle>
             </ProjectTitleWrapper>

@@ -1,9 +1,13 @@
 import styled from "@emotion/styled";
+import {regularMobileMediaQuery} from "../../media";
 
 const Svg = styled.svg`
     
   height: 3.5rem;
   
+  ${regularMobileMediaQuery} {
+    height: 2.5rem;
+  }
    `
 
 export default function BigLabLogo()
