@@ -19,10 +19,7 @@ const Nav = styled.nav`
   ${regularMobileMediaQuery} {
     padding: 1.5rem 1.5rem;
   }
-  transition: backdrop-filter 0.5s ease-in-out;
-  ${(props) => props.blurred  && `
-        backdrop-filter: blur(10px);
-    `}
+ 
 `
 
 const DesktopNavItemContainer = styled.ul`
@@ -47,7 +44,7 @@ export default function Navigation({scrollProgress = 0}){
         console.log(scrollProgress)
     }, [scrollProgress])
 
-    return <Nav style={{"backdrop-filter": scrollProgress > 0.9 ? "blur(10px)" : "unset"}}>
+    return <Nav style={{backdropFilter: scrollProgress > 0.9 ? "blur(10px)" : "unset"}}>
         <BigLabLogo></BigLabLogo>
         <DesktopNavItemContainer >
             <li>
