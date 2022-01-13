@@ -7,7 +7,8 @@ import StyledButton from "../Button";
 import PhonerenderWithBackgroundCircles from "../Objects/PhonerenderWithBackgroundCircles";
 import {tabletMediaQuery} from "../../media";
 import {PhoneAnimation} from "../MagicMaxi/PhoneAnimation";
-
+import {useEffect} from "react";
+import {gsap} from "gsap";
 
 const HeroSection = styled.section`
     height: 100vh;
@@ -24,15 +25,12 @@ const FlexSplitter = styled.div`
 
 const LeftPart = styled.div`
     flex: 5;
-    
-    
     z-index: 5;
     ${tabletMediaQuery} {
         margin-top: 10vh;
         height: 90vh;
         display: flex;
         flex-direction: column;
-       
     }
 `
 
@@ -72,10 +70,21 @@ const MobileHeroImageWrapper = styled.div`
 `
 
 export default function Hero() {
+
+    useEffect(() => {
+        gsap.from("#left-part", {
+            duration: 2,
+            opacity: 0,
+            y: 100,
+            ease: "power3.out",
+            stagger: 0.5
+        })
+    }, [])
+
     return (
         <HeroSection>
             <FlexSplitter>
-                <LeftPart>
+                <LeftPart id="left-part">
                     <MobileHeroImageWrapper>
                         <Image alt={"Iphone with Juksel-App inside"} src={"/assets/mac_iphone.png"} height={1293} width={1900}/>
                     </MobileHeroImageWrapper>

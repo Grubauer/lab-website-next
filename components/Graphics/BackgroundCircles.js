@@ -18,7 +18,7 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
         startRadius: 240,
         animationPause: 700,
         speed: 500,
-        circleThickness: 15,
+        circleThickness: 10,
         idleGrowAnimationSize: 30,
         idleMaxOpacity: 0.3,
     }
