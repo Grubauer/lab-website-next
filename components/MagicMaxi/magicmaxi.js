@@ -30,7 +30,9 @@ export class MagicMaxi{
     async init(){
 
         const self = this;
-        window.addEventListener('load', function(){
+        console.log('window loaded')
+        // window.addEventListener('load', function(){
+
             self.ctx = self.canvas.getContext('2d');
             self.ctx.fillStyle = 'white';
             self.ctx.font = 'bold 30px Helvetica';
@@ -66,8 +68,10 @@ export class MagicMaxi{
                     {
                         self.clearCanvas();
                         self.drawImage(firstImage);
+                        console.log(progress)
                         if(self.showLoadingIndicator)
                         {
+
                         self.ctx.fillText(progress, self.canvas.width/2, self.canvas.height/2);
                         }
                     }
@@ -112,7 +116,7 @@ export class MagicMaxi{
                     }
                 }
             )
-        });
+        // });
 
 
 
