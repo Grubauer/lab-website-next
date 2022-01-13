@@ -6,6 +6,9 @@ import styled from '@emotion/styled'
 import StyledButton from "../Button";
 import BackgroundCircles from "../Graphics/BackgroundCircles";
 import {bigScreenMediaQuery, narrowMediaQuery, tabletBreakpoint, tabletMediaQuery} from "../../media";
+import {PhoneAnimation} from "../MagicMaxi/PhoneAnimation";
+import {AnimatedPhoneProject} from "./AnimatedPhoneProject";
+import React, {useEffect} from "react";
 
 const ContainerWrapper = styled.div`
     position: absolute;
@@ -45,6 +48,9 @@ const ImageWrapper = styled.div`
     justify-content: center;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     ${narrowMediaQuery}{
        transform: translate(-28%, -50%);
@@ -52,15 +58,20 @@ const ImageWrapper = styled.div`
 `
 
 export default function PhonerenderWithBackgroundCircles() {
+    const [phoneHovered, setPhoneHovered] = React.useState(false);
+    useEffect(() => {
+        console.log(phoneHovered)
+    }, [phoneHovered])
     return <ContainerWrapper>
         <Container>
 
 
         <BackgroundCircleWrapper>
-            <BackgroundCircles/>
+            <BackgroundCircles phoneHovered={phoneHovered}/>
         </BackgroundCircleWrapper>
         <ImageWrapper>
-            <Image alt={"Iphone with Juksel-App inside"} src={"/assets/juksel_render.png"} layout={"fill"} objectFit={"contain"}/>
+            {/*<Image alt={"Iphone with Juksel-App inside"} src={"/assets/juksel_render.png"} layout={"fill"} objectFit={"contain"}/>*/}
+            <AnimatedPhoneProject project={"juksel"} style={{height: "70%"}} onPhoneHovered={setPhoneHovered}/>
         </ImageWrapper>
         </Container>
         </ContainerWrapper>

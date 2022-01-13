@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import StyledButton from "../Button";
 import PhonerenderWithBackgroundCircles from "../Objects/PhonerenderWithBackgroundCircles";
 import {tabletMediaQuery} from "../../media";
+import {PhoneAnimation} from "../MagicMaxi/PhoneAnimation";
 
 
 const HeroSection = styled.section`
@@ -23,7 +24,16 @@ const FlexSplitter = styled.div`
 
 const LeftPart = styled.div`
     flex: 5;
+    
+    
     z-index: 5;
+    ${tabletMediaQuery} {
+        margin-top: 10vh;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+       
+    }
 `
 
 const RightPartSpacer = styled.div`
@@ -53,10 +63,11 @@ const Description = styled.p`
     }
 `
 
-const MobileHeroImage = styled.div`
+const MobileHeroImageWrapper = styled.div`
     display: none;
     ${tabletMediaQuery} {
         display: block;
+        
     }
 `
 
@@ -65,9 +76,9 @@ export default function Hero() {
         <HeroSection>
             <FlexSplitter>
                 <LeftPart>
-                    <MobileHeroImage>
-                        <Image alt={"Iphone with Juksel-App inside"} src={"/assets/juksel_render.png"} height={2275} width={1531}/>
-                    </MobileHeroImage>
+                    <MobileHeroImageWrapper>
+                        <Image alt={"Iphone with Juksel-App inside"} src={"/assets/mac_iphone.png"} height={1293} width={1900}/>
+                    </MobileHeroImageWrapper>
                     <Title>
                         <span className="primaryColorSpan">Lorem ipsum</span> dolor sit amet,
                         consectetur adipiscing elit.

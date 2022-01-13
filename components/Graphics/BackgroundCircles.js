@@ -8,7 +8,7 @@ const Svg = styled.svg`
 `
 
 
-export default function BackgroundCircles()
+export default function BackgroundCircles({showHoverEffect, phoneHovered})
 {
     const circles = useRef({});
     const baseCircle = useRef();
@@ -16,9 +16,11 @@ export default function BackgroundCircles()
         amount: 6,
         radiusGrowStep: 30,
         startRadius: 240,
-        animationPause: 500,
-        speed: 400,
+        animationPause: 700,
+        speed: 500,
         circleThickness: 15,
+        idleGrowAnimationSize: 30,
+        idleMaxOpacity: 0.3,
     }
     useEffect(() =>
     {
@@ -43,7 +45,7 @@ export default function BackgroundCircles()
                 gsap.to(baseCircle.current, {
                     duration: 2 + circleProps.speed / 1000,
                     r: circleProps.startRadius + circleProps.radiusGrowStep * 2,
-                    opacity: 1,
+                    opacity: circleProps.idleMaxOpacity,
                     ease: "power2.inOut"
                 });
             }
@@ -53,33 +55,29 @@ export default function BackgroundCircles()
         setInterval(async () =>
         {
             const keys = Object.keys(circles.current);
-            if (pause)
+            if (pause || phoneHovered)
             {
                 return;
             }
             else if(counter < keys.length)
             {
                 const circle = circles.current[keys[counter]];
-                console.log(circle);
                 if(circle)
                 {
                     if(growMode)
                     {
                         gsap.to(circle, {
                             duration: 2 + circleProps.speed / 1000,
-                            r: +keys[counter] + circleProps.radiusGrowStep,
-                            opacity: 1 - counter / keys.length,
+                            r: +keys[counter] + circleProps.idleGrowAnimationSize,
+                            opacity: circleProps.idleMaxOpacity - (counter / keys.length) * circleProps.idleMaxOpacity,
                             ease: "power2.inOut"
                         });
-                        // console.log();##
-                        // circle.r.baseVal.value += circleProps.radiusGrowStep
-                        // circle.setAttribute('r', circle.r + circleProps.radiusGrowStep) ;
                     }
                     else{
                         gsap.to(circle, {
                             duration: 2 + circleProps.speed / 1000,
                             r: +keys[counter],
-                            opacity: 0.1,
+                            opacity: 0,
                             ease: "power2.inOut"
                         });
                     }
@@ -107,19 +105,38 @@ export default function BackgroundCircles()
         // }, circleProps.speed * circleProps.amount * 2);
     }, [])
 
+    // useEffect(() => {
+    //     console.log(phoneHovered)
+    //     if(phoneHovered)
+    //     {
+    //         const keys = Object.keys(circles.current);
+    //         for (let counter = 0; counter < keys.length; counter++) {
+    //             const circle = circles.current[keys[counter]];
+    //             if (circle) {
+    //                     gsap.to(circle, {
+    //                         duration: ,
+    //                         r: +keys[counter] + circleProps.idleGrowAnimationSize + 20,
+    //                         opacity: 1 - (counter / keys.length),
+    //                         ease: "power2.inOut"
+    //                     });
+    //             }
+    //         }
+    //     }
+    // }, [phoneHovered])
+
     return <Svg  viewBox="0 0 1092 1199" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle opacity={0.1} ref={el => baseCircle.current = el}  cx="630" cy="569" r={circleProps.startRadius + 20} fill="url(#paint0_linear_300_55)"/>
         {[...Array(circleProps.amount)].map((_, i) =>
             <circle
                 style={{display: i === 0 ? "none" : "block"}}
-                key={circleProps.startRadius + circleProps.radiusGrowStep * (i+1)}
+                key={circleProps.startRadius + circleProps.idleGrowAnimationSize * (i+1)}
                 // opacity={1-(i+1)/circleProps.amount}
-                opacity={0.1}
+                opacity={0}
                 cx={630}
                 cy={569}
                 r={circleProps.startRadius + (i + 1) * circleProps.radiusGrowStep}
                 strokeWidth={circleProps.circleThickness}
-                ref={el => circles.current[circleProps.startRadius + circleProps.radiusGrowStep * (i+1)] = el}
+                ref={el => circles.current[circleProps.startRadius + circleProps.idleGrowAnimationSize * (i+1)] = el}
                 stroke={`url(#paint1_linear_300_55)`}/>
         )}
         {/*<circle opacity="0.7" cx="630" cy="569" r="325" stroke="url(#paint1_linear_300_55)" stroke-width="10"/>*/}

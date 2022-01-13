@@ -15,9 +15,9 @@ const CustomButton = styled.button`
   }
 `
 
-export default function StyledButton({onClick, children}) {
+export default function StyledButton({onClick, children, ...rest}) {
     return (
-        <CustomButton onClick={() => onClick && onClick()}>
+        <CustomButton onClick={() => onClick && onClick()} {...rest}>
             {children}
         </CustomButton>
     )

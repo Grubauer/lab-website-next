@@ -5,6 +5,7 @@ import {Controller, Scene} from "react-scrollmagic";
 import { Tween, Timeline } from 'react-gsap';
 import Hero from "../components/Sections/Hero";
 import CustomerBar from "../components/Sections/CustomerBar";
+import {PhoneAnimation} from "../components/MagicMaxi/PhoneAnimation";
 
 export default function Home() {
   return (
