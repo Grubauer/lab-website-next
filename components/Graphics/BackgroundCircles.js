@@ -111,7 +111,7 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
     }, [])
 
     useEffect(() => {
-        console.log(phoneHovered)
+
 
         // if(phoneHovered)
         // {

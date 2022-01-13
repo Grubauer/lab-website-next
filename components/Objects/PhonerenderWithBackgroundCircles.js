@@ -26,13 +26,19 @@ const ContainerWrapper = styled.div`
 `
 
 const Container = styled.div`
-    ${bigScreenMediaQuery} {
-       max-width: 100vw;
-    }
+    max-width: 100vw;
+    overflow: hidden;
 `
 
 const BackgroundCircleWrapper = styled.div`
     max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+    * {
+        overflow: hidden;
+        max-width: 100vh;
+    }
+    
     ${narrowMediaQuery}{
        transform: translateX(30%);
     }
@@ -59,9 +65,7 @@ const ImageWrapper = styled.div`
 
 export default function PhonerenderWithBackgroundCircles() {
     const [phoneHovered, setPhoneHovered] = React.useState(false);
-    useEffect(() => {
-        console.log(phoneHovered)
-    }, [phoneHovered])
+
     return <ContainerWrapper>
         <Container>
 

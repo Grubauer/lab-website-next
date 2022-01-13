@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import BigLabLogo from "../Graphics/FullLabLogo";
 import {regularMobileMediaQuery} from "../../media";
+import {useEffect} from "react";
 
 
 const Nav = styled.nav`
@@ -11,31 +12,44 @@ const Nav = styled.nav`
   left: 50%;
   transform: translateX(-50%);
   
-  padding: 4rem 3rem;
+  padding: 3rem 3rem 1rem;
   position: fixed;
   gap: 10%;
-  
+  z-index: 100;
   ${regularMobileMediaQuery} {
     padding: 1.5rem 1.5rem;
   }
+  transition: backdrop-filter 0.5s ease-in-out;
+  ${(props) => props.blurred  && `
+        backdrop-filter: blur(10px);
+    `}
 `
 
 const DesktopNavItemContainer = styled.ul`
     list-style: none;
+    
     display: flex;
     gap: 10%;
     align-items: center;
     flex: 1;
+    
+    
+    
     
     ${regularMobileMediaQuery}{
         display: none;
     }
 `
 
-export default function Navigation(){
-    return <Nav>
+export default function Navigation({scrollProgress = 0}){
+
+    useEffect(() => {
+        console.log(scrollProgress)
+    }, [scrollProgress])
+
+    return <Nav style={{"backdrop-filter": scrollProgress > 0.9 ? "blur(10px)" : "unset"}}>
         <BigLabLogo></BigLabLogo>
-        <DesktopNavItemContainer>
+        <DesktopNavItemContainer >
             <li>
                 <a href="#">Home</a>
             </li>

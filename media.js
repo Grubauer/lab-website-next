@@ -1,7 +1,7 @@
 export const SMALL_MOBILE_BREAKPOINT = 400
 export const MOBILE_BREAKPOINT = 600
 export const TABLET_BREAKPOINT = 800
-export const NARROW_DEVICE = 1000
+export const NARROW_DEVICE = 1200
 export const BIG_SCREEN_BREAKPOINT = 1600
 
 

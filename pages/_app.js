@@ -1,6 +1,8 @@
 import '../styles/globals.css'
 import {ThemeProvider} from "@emotion/react";
 import Navigation from "../components/Objects/Navigation";
+import {Controller, Scene} from "react-scrollmagic";
+import {useState} from "react";
 
 const theme = {
   colors: {
@@ -14,9 +16,23 @@ const theme = {
 
 
 function MyApp({ Component, pageProps }) {
+
+  // const [pageProgress, setPageProgress] = useState(0);
   return <ThemeProvider theme={theme}>
-    <Navigation/>
-    <Component {...pageProps} />
+
+    <Controller>
+      <Scene duration={300}>
+        {(progress) =>
+            <>
+              <Navigation scrollProgress={progress}/>
+              <Component {...pageProps} />
+            </>
+        }
+
+
+      </Scene>
+    </Controller>
+
   </ThemeProvider>
 }
 
