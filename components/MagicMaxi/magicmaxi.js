@@ -6,7 +6,7 @@ const modes = {
 }
 
 export class MagicMaxi{
-     constructor(canvasId, folderPath, imageFileNames, mode, options, showFirstImageWhenLoaded = true, showLoadingIndicator = true, onLoadingFinished){
+     constructor(canvasId, folderPath, imageFileNames, mode, options, showFirstImageWhenLoaded = true, showLoadingIndicator = false, onLoadingFinished){
          console.log(canvasId)
         this.canvasId = canvasId;
         this.canvas = document.getElementById(canvasId);
