@@ -22,6 +22,9 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
         idleGrowAnimationSize: 30,
         idleMaxOpacity: 0.3,
     }
+
+    let circleAnimInterval = null;
+    let activeCircleAnimations = [];
     useEffect(() =>
     {
         let growMode = true;
@@ -52,7 +55,7 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
             baseCircleStateBig = !baseCircleStateBig;
         }
         moveBaseCircle();
-        setInterval(async () =>
+        circleAnimInterval = setInterval(async () =>
         {
             const keys = Object.keys(circles.current);
             if (pause || phoneHovered)
@@ -66,20 +69,21 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
                 {
                     if(growMode)
                     {
-                        gsap.to(circle, {
+                        activeCircleAnimations.push(gsap.to(circle, {
                             duration: 2 + circleProps.speed / 1000,
                             r: +keys[counter] + circleProps.idleGrowAnimationSize,
                             opacity: circleProps.idleMaxOpacity - (counter / keys.length) * circleProps.idleMaxOpacity,
                             ease: "power2.inOut"
-                        });
+                        }));
                     }
                     else{
+                        activeCircleAnimations.push(
                         gsap.to(circle, {
                             duration: 2 + circleProps.speed / 1000,
                             r: +keys[counter],
                             opacity: 0,
                             ease: "power2.inOut"
-                        });
+                        }));
                     }
                 }
 
@@ -88,6 +92,7 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
                 growMode = !growMode;
                 counter = 0;
                 pause = true;
+                activeCircleAnimations = [];
                 // moveBaseCircle();
                 await new Promise(resolve => setTimeout(() => {
                     pause = false;
@@ -105,24 +110,38 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
         // }, circleProps.speed * circleProps.amount * 2);
     }, [])
 
-    // useEffect(() => {
-    //     console.log(phoneHovered)
-    //     if(phoneHovered)
-    //     {
-    //         const keys = Object.keys(circles.current);
-    //         for (let counter = 0; counter < keys.length; counter++) {
-    //             const circle = circles.current[keys[counter]];
-    //             if (circle) {
-    //                     gsap.to(circle, {
-    //                         duration: ,
-    //                         r: +keys[counter] + circleProps.idleGrowAnimationSize + 20,
-    //                         opacity: 1 - (counter / keys.length),
-    //                         ease: "power2.inOut"
-    //                     });
-    //             }
-    //         }
-    //     }
-    // }, [phoneHovered])
+    useEffect(() => {
+        console.log(phoneHovered)
+
+        // if(phoneHovered)
+        // {
+        //     activeCircleAnimations.forEach(anim => {
+        //         anim.pause();
+        //     })
+        //     const keys = Object.keys(circles.current);
+        //     for (let counter = 0; counter < keys.length; counter++) {
+        //         const circle = circles.current[keys[counter]];
+        //         if (circle) {
+        //                 gsap.to(circle, {
+        //                     duration: 1,
+        //                     r: +keys[counter] + circleProps.idleGrowAnimationSize + 20,
+        //                     opacity: 1 - (counter / keys.length),
+        //                     ease: "power2.inOut"
+        //                 });
+        //         }
+        //     }
+        //     if(circleAnimInterval)
+        //     {
+        //         clearInterval(circleAnimInterval);
+        //     }
+        // }
+        // else {
+        //     if(circleAnimInterval)
+        //     {
+        //         setInterval(circleAnimInterval, circleProps.speed);
+        //     }
+        // }
+    }, [phoneHovered])
 
     return <Svg  viewBox="0 0 1092 1199" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle opacity={0.1} ref={el => baseCircle.current = el}  cx="630" cy="569" r={circleProps.startRadius + 20} fill="url(#paint0_linear_300_55)"/>
