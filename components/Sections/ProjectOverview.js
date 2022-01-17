@@ -38,7 +38,7 @@ export default function ProjectOverview()
     const appProjects = ["juksel", "partytime"]
     return <div>
         <Container>
-            <BackgroundText>APPS</BackgroundText>
+            {/*<BackgroundText>APPS</BackgroundText>*/}
             {appProjects.map(project => <AnimatedPhoneProject canvasId={"overview"+project} key={project} project={project}/>)}
         </Container>
         <Container>
