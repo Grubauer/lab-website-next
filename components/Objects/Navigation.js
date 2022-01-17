@@ -41,7 +41,7 @@ const DesktopNavItemContainer = styled.ul`
 export default function Navigation({scrollProgress = 0}){
 
     useEffect(() => {
-        console.log(scrollProgress)
+        // console.log(scrollProgress)
     }, [scrollProgress])
 
     return <Nav style={{backdropFilter: scrollProgress > 0.9 ? "blur(10px)" : "unset"}}>

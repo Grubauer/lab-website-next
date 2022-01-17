@@ -3,8 +3,13 @@ import {useEffect, useRef} from "react";
 import gsap from "gsap";
 const Svg = styled.svg`
   height: 110vh;
-  transform: scale(1.3);
+  transform: scale(1.2);
   z-index: 0;
+  
+  transition: transform 0.25s ease-in-out;
+  ${props => props.hover && "transform: scale(1.3);"}
+    
+  
 `
 
 
@@ -111,7 +116,7 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
     }, [])
 
     useEffect(() => {
-
+        // console.log("phone hovered")
 
         // if(phoneHovered)
         // {
@@ -143,7 +148,7 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
         // }
     }, [phoneHovered])
 
-    return <Svg  viewBox="0 0 1092 1199" fill="none" xmlns="http://www.w3.org/2000/svg">
+    return <Svg hover={phoneHovered}  viewBox="0 0 1092 1199" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle opacity={0.1} ref={el => baseCircle.current = el}  cx="630" cy="569" r={circleProps.startRadius + 20} fill="url(#paint0_linear_300_55)"/>
         {[...Array(circleProps.amount)].map((_, i) =>
             <circle

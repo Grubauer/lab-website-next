@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import React, {useEffect} from "react";
 import {MagicMaxi} from "./magicmaxi";
 import {tabletMediaQuery} from "../../media";
+import {MagicMaxiController} from "./magicmaxicontroller";
 
 
 const Canvas = styled.canvas`
@@ -30,7 +31,7 @@ export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canva
             filenames.push(`${activeProject.imageNameWithoutIndex} ${i}.png`);
         }
         const magicMaxiHover = new MagicMaxi(canvasId,  animationsFolderPath + "/" + activeProject.folderName, filenames, MagicMaxi.modes.HOVER, {speed})
-
+        MagicMaxiController.addMagicMaxi(magicMaxiHover);
     }, []);
 
     return <Canvas id={canvasId} height={1000} width={600}  {...rest} />

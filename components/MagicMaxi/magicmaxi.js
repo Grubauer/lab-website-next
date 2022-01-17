@@ -6,8 +6,7 @@ const modes = {
 }
 
 export class MagicMaxi{
-     constructor(canvasId, folderPath, imageFileNames, mode, options, showFirstImageWhenLoaded = true, showLoadingIndicator = false, onLoadingFinished){
-         console.log(canvasId)
+     constructor(canvasId, folderPath, imageFileNames, mode, options, showFirstImageWhenLoaded = true, showLoadingIndicator = false, onLoadingFirstImgFinished, autoLoadFrames = false){
         this.canvasId = canvasId;
         this.canvas = document.getElementById(canvasId);
         this.imgAmount = imageFileNames.length;
@@ -15,69 +14,94 @@ export class MagicMaxi{
         this.mode = mode;
         this.showLoadingIndicator = showLoadingIndicator;
         this.imageFileNames = imageFileNames;
-        this.onloadingFinished = onLoadingFinished;
+        this.onLoadingFirstImgFinished = onLoadingFirstImgFinished;
         this.currentFrameIndex = options.startFrameIndex ? options.startFrameIndex : 0;
+        this.autoLoadFrames = autoLoadFrames;
         /**
          * @type {speed: number, scene: Object, startFrameIndex: number}
          * @description speed: hover animation speed for Hover Mode, scene: ScrollMagic Scene for Scroll Mode
          */
         this.options = options;
         this.showFirstImageWhenLoaded = showFirstImageWhenLoaded;
-        setTimeout(() => {
-            this.init();
-        }, 0);
     }
     async init(){
 
         const self = this;
-        // window.addEventListener('load', function(){
-
+        return new Promise((resolve, reject) => {
             self.ctx = self.canvas.getContext('2d');
             self.ctx.fillStyle = 'white';
             self.ctx.font = 'bold 30px Helvetica';
             self.ctx.lineWidth = 10;
 
             // await self.sleep(5000);
-            let loadedImages = 0;
+
             let firstImage = null;
 
-            if(self.options.startFrameIndex)
-            {
-                const filePath = self.folderPath + self.imageFileNames[self.options.startFrameIndex];
-                const img = new Image();
-                img.src = self.folderPath + "/" + self.imageFileNames[self.options.startFrameIndex];
-                img.onload = (e) => {
-                    self.drawImage(img);
-                    firstImage = img;
-                }
-
+            const startFrameIndex = self.options.startFrameIndex ? self.options.startFrameIndex : 0;
+            const filePath = self.folderPath + self.imageFileNames[startFrameIndex];
+            const img = new Image();
+            img.src = self.folderPath + "/" + self.imageFileNames[startFrameIndex];
+            img.onload = (e) => {
+                self.drawImage(img);
+                firstImage = img;
+                self.firstImage = img;
+                resolve();
             }
+
+
 
             let oldText = '';
-            function updateProgress(image)
+
+
+            if(this.autoLoadFrames)
             {
-
-                    loadedImages++;
-                    const progress = Math.round((loadedImages / self.imgAmount) * 100) + '%';
-                    if(!firstImage && !self.options.startFrameIndex){
-
-                        firstImage = image.img;
-                    }
-                    if(self.showFirstImageWhenLoaded && firstImage)
-                    {
-                        self.clearCanvas();
-                        self.drawImage(firstImage);
-                        if(self.showLoadingIndicator)
-                        {
-
-                        self.ctx.fillText(progress, self.canvas.width/2, self.canvas.height/2);
-                        }
-                    }
-                // else if(!firstImage && !self.showFirstImageWhenLoaded){
-                //     firstImage = image.img;
-                //     self.drawImage(firstImage);
-                // }
+                this.loadFrames();
             }
+        });
+
+        // window.addEventListener('load', function(){
+
+
+
+
+        // });
+
+
+
+    }
+
+    async loadFrames()
+    {
+        const firstImage = this.firstImage;
+        const self = this;
+        let loadedImages = 0;
+        function updateProgress(image)
+        {
+
+            loadedImages++;
+            const progress = Math.round((loadedImages / self.imgAmount) * 100) + '%';
+            // if(!firstImage && !self.options.startFrameIndex){
+            //
+            //     firstImage = image.img;
+            // }
+            if(self.showFirstImageWhenLoaded && firstImage)
+            {
+                self.clearCanvas();
+                self.drawImage(firstImage);
+                if(self.showLoadingIndicator)
+                {
+
+                    self.ctx.fillText(progress, self.canvas.width/2, self.canvas.height/2);
+                }
+            }
+            // else if(!firstImage && !self.showFirstImageWhenLoaded){
+            //     firstImage = image.img;
+            //     self.drawImage(firstImage);
+            // }
+        }
+
+        return new Promise((resolve, reject) => {
+
             rxjs.forkJoin(
                 self.imageFileNames.map((filename, i) => {
 
@@ -99,7 +123,7 @@ export class MagicMaxi{
                     self.images = images;
                     const firstImg = images[0].img;
                     self.drawImage(firstImg);
-                    this.onloadingFinished && this.onloadingFinished();
+
 
                     switch (self.mode)
                     {
@@ -112,12 +136,16 @@ export class MagicMaxi{
                         default:
                             break;
                     }
+                    resolve(this.canvasId);
+
+                }, (err) => {
+                    console.log(err);
+                    reject();
+                }, () => {
+                    console.log('done: ' + self.canvasId);
                 }
-            )
-        // });
-
-
-
+            );
+        });
     }
 
 
