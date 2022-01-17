@@ -121,7 +121,7 @@ export class MagicMaxi{
             ).subscribe(
                 (images) => {
                     self.images = images;
-                    const firstImg = images[0].img;
+                    const firstImg = images[self.options.startFrameIndex ? self.options.startFrameIndex : 0].img;
                     self.drawImage(firstImg);
 
 
@@ -213,22 +213,31 @@ export class MagicMaxi{
 
     initHover(images) {
         const speed = this.options.speed;
-        let currentFrame = 0;
+        let currentFrame = this.options.startFrameIndex ? this.options.startFrameIndex : 0;
+        console.log(currentFrame);
         let currentlyHovering = false;
         const self = this;
 
+       function onHover(){
+           currentlyHovering = true;
+           setTimeout(async () => {
+               while(currentlyHovering && currentFrame < self.imgAmount - 1)
+               {
+                   self.clearCanvas()
+                   const img = images[currentFrame].img;
+                   self.drawImage(img);
+                   currentFrame++;
+                   await self.sleep(speed - currentFrame);
+               }
+           });
+       }
+
+       if(this.canvas.matches(':hover')) {
+           onHover();
+       }
+
         this.canvas.addEventListener("mouseenter", () => {
-            currentlyHovering = true;
-            setTimeout(async () => {
-                while(currentlyHovering && currentFrame < self.imgAmount - 1)
-                {
-                    self.clearCanvas()
-                    const img = images[currentFrame].img;
-                    self.drawImage(img);
-                    currentFrame++;
-                    await self.sleep(speed - currentFrame);
-                }
-            });
+            onHover()
         })
 
         this.canvas.addEventListener("mouseleave", () => {
