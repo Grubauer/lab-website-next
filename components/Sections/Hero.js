@@ -69,7 +69,7 @@ const MobileHeroImageWrapper = styled.div`
     }
 `
 
-export default function Hero() {
+export default function Hero({heroProject}) {
 
     useEffect(() => {
         gsap.from("#left-part", {
@@ -79,6 +79,8 @@ export default function Hero() {
             ease: "power3.out",
             stagger: 0.5
         })
+
+        console.log(heroProject)
     }, [])
 
     return (
@@ -101,7 +103,7 @@ export default function Hero() {
                 </LeftPart>
                 <RightPartSpacer/>
             </FlexSplitter>
-            <PhonerenderWithBackgroundCircles/>
+            <PhonerenderWithBackgroundCircles project={heroProject}/>
         </HeroSection>
     )
 }

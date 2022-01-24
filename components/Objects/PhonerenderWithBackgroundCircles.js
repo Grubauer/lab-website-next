@@ -63,7 +63,7 @@ const ImageWrapper = styled.div`
     } 
 `
 
-export default function PhonerenderWithBackgroundCircles() {
+export default function PhonerenderWithBackgroundCircles({project}) {
     const [phoneHovered, setPhoneHovered] = React.useState(false);
 
     return <ContainerWrapper>
@@ -75,7 +75,7 @@ export default function PhonerenderWithBackgroundCircles() {
         </BackgroundCircleWrapper>
         <ImageWrapper>
             {/*<Image alt={"Iphone with Juksel-App inside"} src={"/assets/juksel_render.png"} layout={"fill"} objectFit={"contain"}/>*/}
-            <AnimatedPhoneProject canvasId={"heroCanvas"}  style={{height: "70%"}} onPhoneHovered={setPhoneHovered}/>
+            <AnimatedPhoneProject project={project} canvasId={"heroCanvas"} style={{height: "70%"}} onPhoneHovered={setPhoneHovered}/>
         </ImageWrapper>
         </Container>
         </ContainerWrapper>

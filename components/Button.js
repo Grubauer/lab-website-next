@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 
-const CustomButton = styled.button`
+const CustomButton = styled.a`
   background-color: ${props => props.theme.colors.primary};
   color: ${props => props.theme.colors.white};
   border: none;

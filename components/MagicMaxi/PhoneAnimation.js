@@ -22,15 +22,13 @@ const Canvas = styled.canvas`
 
 export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canvasId, ...rest}) {
 
-    const animationsFolderPath= "/assets/animationFrames/projects"
-
+    const animationSources = activeProject.animation.data.map(data => `http://localhost:1337${data.attributes.url}`)
+    // const animationSources = activeProject.animation.data.map(data => `${process.env.CMS_URL}${data.attributes.url}`)
     useEffect(() => {
         const filenames = []
 
-        for (let i = 1; i < img_count + 1; i++) {
-            filenames.push(`${activeProject.imageNameWithoutIndex} ${i}.png`);
-        }
-        const magicMaxiHover = new MagicMaxi(canvasId,  animationsFolderPath + "/" + activeProject.folderName, filenames, MagicMaxi.modes.HOVER, {speed})
+
+        const magicMaxiHover = new MagicMaxi(canvasId,  animationSources, MagicMaxi.modes.HOVER, {speed})
         MagicMaxiController.addMagicMaxi(magicMaxiHover);
     }, []);
 

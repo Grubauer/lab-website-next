@@ -6,14 +6,14 @@ const modes = {
 }
 
 export class MagicMaxi{
-     constructor(canvasId, folderPath, imageFileNames, mode, options, showFirstImageWhenLoaded = true, showLoadingIndicator = false, onLoadingFirstImgFinished, autoLoadFrames = false){
+     constructor(canvasId, animationSources, mode, options, showFirstImageWhenLoaded = true, showLoadingIndicator = false, onLoadingFirstImgFinished, autoLoadFrames = false){
         this.canvasId = canvasId;
         this.canvas = document.getElementById(canvasId);
-        this.imgAmount = imageFileNames.length;
-        this.folderPath = folderPath;
+        this.imgAmount = animationSources.length;
+        this.animationSources = animationSources;
         this.mode = mode;
         this.showLoadingIndicator = showLoadingIndicator;
-        this.imageFileNames = imageFileNames;
+        // this.imageFileNames = imageFileNames;
         this.onLoadingFirstImgFinished = onLoadingFirstImgFinished;
         this.currentFrameIndex = options.startFrameIndex ? options.startFrameIndex : 0;
         this.autoLoadFrames = autoLoadFrames;
@@ -38,9 +38,8 @@ export class MagicMaxi{
             let firstImage = null;
 
             const startFrameIndex = self.options.startFrameIndex ? self.options.startFrameIndex : 0;
-            const filePath = self.folderPath + self.imageFileNames[startFrameIndex];
             const img = new Image();
-            img.src = self.folderPath + "/" + self.imageFileNames[startFrameIndex];
+            img.src = this.animationSources[startFrameIndex];
             img.onload = (e) => {
                 self.drawImage(img);
                 firstImage = img;
@@ -103,11 +102,11 @@ export class MagicMaxi{
         return new Promise((resolve, reject) => {
 
             rxjs.forkJoin(
-                self.imageFileNames.map((filename, i) => {
+                self.animationSources.map((filename, i) => {
 
                     return rxjs.Observable.create(observer => {
                         const img = new Image();
-                        img.src = self.folderPath + "/" + self.imageFileNames[i];
+                        img.src = self.animationSources[i];
                         img.onload = (e) => {
 
                             observer.next({
@@ -120,7 +119,11 @@ export class MagicMaxi{
                 })
             ).subscribe(
                 (images) => {
-                    self.images = images;
+                    const imgIndexRegex = /.*\_(?<index>\d{1,3})*\_.*\.(png|jpe?g|svg|webp)/;
+
+                    const sortData = (nodeArr) => nodeArr.sort((a,b)=> a.filename.match(imgIndexRegex).groups.index - b.filename.match(imgIndexRegex).groups.index);
+
+                    self.images = sortData(images);
                     const firstImg = images[self.options.startFrameIndex ? self.options.startFrameIndex : 0].img;
                     self.drawImage(firstImg);
 

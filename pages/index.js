@@ -7,8 +7,10 @@ import Hero from "../components/Sections/Hero";
 import CustomerBar from "../components/Sections/CustomerBar";
 import {PhoneAnimation} from "../components/MagicMaxi/PhoneAnimation";
 import ProjectOverview from "../components/Sections/ProjectOverview";
+import {fetchEmployees, fetchIndexPageProjects} from "../helper/cms-helper";
+import AboutUsOverview from "../components/Sections/AboutUsOverview";
 
-export default function Home() {
+function Home({projects, employees}) {
   return (
     <div className={"container"}>
       <Head>
@@ -17,10 +19,21 @@ export default function Home() {
       </Head>
 
       <main>
-          <Hero />
+          <Hero heroProject={projects.find(project => project.attributes.hero)}/>
           <CustomerBar/>
-          <ProjectOverview/>
+          <ProjectOverview projects={projects}/>
+          <AboutUsOverview employees={employees}/>
       </main>
     </div>
   )
 }
+
+export async function getStaticProps(context) {
+    const projects = await fetchIndexPageProjects();
+    const employees = await fetchEmployees();
+    return {
+        props: {projects, employees}, // will be passed to the page component as props
+    }
+}
+
+export default Home;

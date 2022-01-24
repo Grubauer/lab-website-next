@@ -35,6 +35,11 @@ p{
   /*padding-top: 4rem;*/
 }
 
+h2{
+  font-size: 2rem;
+  text-align: center;
+}
+
 .container {
   max-width: 1400px;
   margin: auto;

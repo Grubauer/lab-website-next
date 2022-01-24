@@ -85,6 +85,7 @@ export function AnimatedPhoneProject({project, img_count, onPhoneHovered, canvas
     let titleAnimation;
     let descriptionAnimation;
     useEffect(()=> {
+
         onPhoneHovered && onPhoneHovered(hovered);
 
         if(titleAnimation)
@@ -108,33 +109,33 @@ export function AnimatedPhoneProject({project, img_count, onPhoneHovered, canvas
         //     // gsap.to("#projectHint", {duration: 1, top: "50%", opacity: 0, ease: "power3.out", delay: 0});
         // }
     }, [hovered])
+    //
+    // const projects = {
+    //     juksel: {
+    //         title: "Juksel",
+    //         description: "Mit Juksel kannst du ganz einfach und unkompliziert die Musik die in deiner Bar läuft mitbestimmen",
+    //         type: "App",
+    //         folderName: "juksel_left_to_right",
+    //         imageNameWithoutIndex: "Untitled Frame"
+    //     },
+    //     partytime: {
+    //         title: "PartyTime",
+    //         description: "PartyTime ist ein kostenloses, einfaches und schnelles Musik-Party-App. Mit PartyTime kannst du deine Lieblings-Musikparty mit deinen Freunden teilen.",
+    //         type: "App",
+    //         folderName: "partytime",
+    //         imageNameWithoutIndex: "iphone_website_hero Frame"
+    //     },
+    //     sqooter: {
+    //         title: "Sqooter",
+    //         description: "Sqooter ist eine App, die dir die Möglichkeit gibt, deine Lieblings-Musik zu finden. Mit Sqooter kannst du deine Lieblings-Musikparty mit deinen Freunden teilen.",
+    //         type: "App",
+    //         folderName: "sqooter",
+    //         imageNameWithoutIndex: "iphone_website_hero Frame"
+    //     },
+    // }
 
-    const projects = {
-        juksel: {
-            title: "Juksel",
-            description: "Mit Juksel kannst du ganz einfach und unkompliziert die Musik die in deiner Bar läuft mitbestimmen",
-            type: "App",
-            folderName: "juksel_left_to_right",
-            imageNameWithoutIndex: "Untitled Frame"
-        },
-        partytime: {
-            title: "PartyTime",
-            description: "PartyTime ist ein kostenloses, einfaches und schnelles Musik-Party-App. Mit PartyTime kannst du deine Lieblings-Musikparty mit deinen Freunden teilen.",
-            type: "App",
-            folderName: "partytime",
-            imageNameWithoutIndex: "iphone_website_hero Frame"
-        },
-        sqooter: {
-            title: "Sqooter",
-            description: "Sqooter ist eine App, die dir die Möglichkeit gibt, deine Lieblings-Musik zu finden. Mit Sqooter kannst du deine Lieblings-Musikparty mit deinen Freunden teilen.",
-            type: "App",
-            folderName: "sqooter",
-            imageNameWithoutIndex: "iphone_website_hero Frame"
-        },
-    }
-
-    const randomProjectIndex = Math.floor(Math.random() * Object.keys(projects).length);
-    const activeProject = projects[project ? project : Object.keys(projects)[randomProjectIndex]];
+    // const randomProjectIndex = Math.floor(Math.random() * Object.keys(projects).length);
+    const activeProject = project.attributes;
 
     let hoverTimoutRunning = false;
     const setHoveredWithTimeOut = (hovered) => {

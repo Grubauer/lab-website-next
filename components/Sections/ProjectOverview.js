@@ -1,9 +1,15 @@
 import {AnimatedPhoneProject} from "../Objects/AnimatedPhoneProject";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery, tabletMediaQuery} from "../../media";
+import {useEffect} from "react";
+import StyledButton from "../Button";
 
 const Container = styled.div`
     margin: 10rem 0;
+`
+
+const ProjectsContainer = styled.div`
+    margin: 5rem 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10rem;
@@ -33,17 +39,38 @@ const BackgroundText = styled.h2`
    
     z-index: 1;`
 
-export default function ProjectOverview()
+const Title = styled.h2`
+    text-align: center;
+`
+
+const ButtonWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+`
+
+
+export default function ProjectOverview({projects})
 {
     const appProjects = ["juksel", "partytime"]
-    return <div>
-        <Container>
-            {/*<BackgroundText>APPS</BackgroundText>*/}
-            {appProjects.map(project => <AnimatedPhoneProject canvasId={"overview"+project} key={project} project={project}/>)}
-        </Container>
-        <Container>
-            {appProjects.map(project => <AnimatedPhoneProject canvasId={"overview2"+project} key={project} project={project}/>)}
-        </Container>
 
-    </div>
+    useEffect(() => {
+        console.log(projects)
+    }, [])
+
+    return <Container>
+        <Title>
+            Endecke unsere <span className="primaryColorSpan">Projekte</span>
+        </Title>
+        <ProjectsContainer>
+            {/*<BackgroundText>APPS</BackgroundText>*/}
+            {projects.map(project => <AnimatedPhoneProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
+        </ProjectsContainer>
+
+        <ButtonWrapper>
+            <StyledButton>Mehr entdecken</StyledButton>
+        </ButtonWrapper>
+
+    </Container>
 }
