@@ -42,7 +42,7 @@ const RightPartSpacer = styled.div`
     }
 `
 
-const Title = styled.h2`
+const Title = styled.h1`
     font-size: 2.5rem;
     font-weight: 700;
     color: #fff;
@@ -69,7 +69,7 @@ const MobileHeroImageWrapper = styled.div`
     }
 `
 
-export default function Hero({heroProject}) {
+export default function Hero({heroContent, heroProject}) {
 
     useEffect(() => {
         gsap.from("#left-part", {
@@ -79,8 +79,6 @@ export default function Hero({heroProject}) {
             ease: "power3.out",
             stagger: 0.5
         })
-
-        console.log(heroProject)
     }, [])
 
     return (
@@ -91,11 +89,10 @@ export default function Hero({heroProject}) {
                         <Image alt={"Iphone with Juksel-App inside"} src={"/assets/mac_iphone.png"} height={1293} width={1900}/>
                     </MobileHeroImageWrapper>
                     <Title>
-                        <span className="primaryColorSpan">Lorem ipsum</span> dolor sit amet,
-                        consectetur adipiscing elit.
+                        <span className="primaryColorSpan">Dein Partner </span> für Mobile Apps & Webanwendungen.
                     </Title>
                     <Description>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non id tempus, convallis nisl pretium elementum vitae et.
+                        {heroContent.attributes.description}
                     </Description>
                     <StyledButton>
                         Anfrage

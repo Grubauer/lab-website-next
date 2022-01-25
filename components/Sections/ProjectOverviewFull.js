@@ -3,13 +3,15 @@ import styled from "@emotion/styled";
 import {regularMobileMediaQuery, tabletMediaQuery} from "../../media";
 import {useEffect} from "react";
 import StyledButton from "../Button";
+import TopicWithImage from "../Objects/TopicWithImage";
+import {AnimatedWebappProject} from "../Objects/AnimatedWebappProject";
 
 const Container = styled.div`
-    margin: 10rem 0;
+    margin: 15rem 0;
 `
 
 const ProjectsContainer = styled.div`
-    margin: 5rem 0;
+    margin: 10rem 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10rem;
@@ -39,8 +41,8 @@ const BackgroundText = styled.h2`
    
     z-index: 1;`
 
-const Title = styled.h2`
-    text-align: center;
+const Title = styled.h3`
+   
 `
 
 const ButtonWrapper = styled.div`
@@ -50,8 +52,11 @@ const ButtonWrapper = styled.div`
     
 `
 
+const Spacer = styled.div`
+    height: 10rem;
+`
 
-export default function ProjectOverview({projects})
+export default function ProjectOverviewFull({projects})
 {
     const appProjects = ["juksel", "partytime"]
 
@@ -59,18 +64,20 @@ export default function ProjectOverview({projects})
         console.log(projects)
     }, [])
 
+    function getProjectsFromCategory(category)
+    {
+        return projects.filter(project => project.attributes.type === category)
+    }
+
     return <Container>
-        <Title>
-            Endecke unsere <span className="primaryColorSpan">Projekte</span>
-        </Title>
+
+        <ProjectsContainer>
+            {getProjectsFromCategory("App").map(project => <AnimatedPhoneProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
+        </ProjectsContainer>
+        <Spacer/>
         <ProjectsContainer>
             {/*<BackgroundText>APPS</BackgroundText>*/}
-            {projects.map(project => <AnimatedPhoneProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
+            {getProjectsFromCategory("Webapp").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
-
-        <ButtonWrapper>
-            <StyledButton>Mehr entdecken</StyledButton>
-        </ButtonWrapper>
-
     </Container>
 }

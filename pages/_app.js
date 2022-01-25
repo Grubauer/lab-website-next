@@ -10,6 +10,7 @@ const theme = {
     primaryHovered: '#C819FF',
     white: '#FFFFFF',
     background: '#000822',
+    backgroundHovered: '#010926',
     text: '#B2B2B2'
   }
 }

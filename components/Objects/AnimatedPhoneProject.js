@@ -1,10 +1,9 @@
 import {PhoneAnimation} from "../MagicMaxi/PhoneAnimation";
 import styled from "@emotion/styled";
 import React, {useEffect} from "react";
-import {gsap} from "gsap";
-import StyledButton from "../Button";
+import Link from "next/link";
 
-const AnimationContainer = styled.div`
+const AnimationContainer = styled.a`
     height: 100%;
     display: flex;
     justify-content: center;
@@ -148,7 +147,9 @@ export function AnimatedPhoneProject({project, img_count, onPhoneHovered, canvas
        }
     }
 
-    return <AnimationContainer >
+    return <Link href={"/projects/" + project.id}>
+
+    <AnimationContainer >
         <PhoneAnimation onTouchStart={() => setHovered(true)} onTouchEnd={() => setHoveredWithTimeOut(false)} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} />
         <TextOverlay hovered={hovered}>
 
@@ -160,4 +161,5 @@ export function AnimatedPhoneProject({project, img_count, onPhoneHovered, canvas
         </TextOverlay>
 
     </AnimationContainer>
+    </Link>
 }

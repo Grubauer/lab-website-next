@@ -6,11 +6,11 @@ import { Tween, Timeline } from 'react-gsap';
 import Hero from "../components/Sections/Hero";
 import CustomerBar from "../components/Sections/CustomerBar";
 import {PhoneAnimation} from "../components/MagicMaxi/PhoneAnimation";
-import ProjectOverview from "../components/Sections/ProjectOverview";
-import {fetchEmployees, fetchIndexPageProjects} from "../helper/cms-helper";
+import ProjectOverviewLimited from "../components/Sections/ProjectOverviewLimited";
+import {fetchEmployees, fetchHeroContent, fetchIndexPageProjects} from "../helper/cms-helper";
 import AboutUsOverview from "../components/Sections/AboutUsOverview";
 
-function Home({projects, employees}) {
+function Home({projects, employees, heroContent}) {
   return (
     <div className={"container"}>
       <Head>
@@ -19,9 +19,9 @@ function Home({projects, employees}) {
       </Head>
 
       <main>
-          <Hero heroProject={projects.find(project => project.attributes.hero)}/>
+          <Hero heroContent={heroContent} heroProject={projects.find(project => project.attributes.hero)}/>
           <CustomerBar/>
-          <ProjectOverview projects={projects}/>
+          <ProjectOverviewLimited projects={projects}/>
           <AboutUsOverview employees={employees}/>
       </main>
     </div>
@@ -31,8 +31,9 @@ function Home({projects, employees}) {
 export async function getStaticProps(context) {
     const projects = await fetchIndexPageProjects();
     const employees = await fetchEmployees();
+    const heroContent = await fetchHeroContent();
     return {
-        props: {projects, employees}, // will be passed to the page component as props
+        props: {projects, employees, heroContent}, // will be passed to the page component as props
     }
 }
 

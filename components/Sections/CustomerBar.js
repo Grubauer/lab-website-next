@@ -21,7 +21,6 @@ const List = styled.ul`
     ${regularMobileMediaQuery}{
        grid-template-columns: repeat(2, 1fr);
        height: 50vh;
-       margin: 20vh 0;
     } 
 `
 
