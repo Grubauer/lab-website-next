@@ -5,7 +5,7 @@ import {useEffect} from "react";
 import StyledButton from "../Button";
 import TopicWithImage from "../Objects/TopicWithImage";
 import {AnimatedWebappProject} from "../Objects/AnimatedWebappProject";
-
+import Link from "next/link";
 const Container = styled.div`
     margin: 10rem 0;
 `
@@ -84,8 +84,12 @@ export default function ProjectOverviewLimited({projects})
             {getProjectsFromCategory("App").map(project => <AnimatedPhoneProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
 
+
         <ButtonWrapper>
-            <StyledButton>Mehr entdecken</StyledButton>
+            <Link href={"/projects"} passHref>
+                <StyledButton>Mehr entdecken</StyledButton>
+            </Link>
+
         </ButtonWrapper>
         <Spacer/>
 

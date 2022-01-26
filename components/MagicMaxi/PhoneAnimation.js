@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, {useEffect} from "react";
 import {MagicMaxi} from "./magicmaxi";
-import {tabletMediaQuery} from "../../media";
+import {regularMobileMediaQuery, tabletMediaQuery} from "../../media";
 import {MagicMaxiController} from "./magicmaxicontroller";
 
 
@@ -9,6 +9,7 @@ const Canvas = styled.canvas`
     // height: 30rem;
         transition: transform 0.5s ease, filter 0.5s ease 0.5s;
     height: 35rem;
+    
     :hover {
         transform: scale(1.3) translateY(-5%);
         filter: brightness(0.5);
@@ -18,6 +19,11 @@ const Canvas = styled.canvas`
         height: unset;
         max-width: 100%;
     }
+    
+     ${regularMobileMediaQuery}
+   {
+       max-height: 70vh;
+   }
 `
 
 export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canvasId, ...rest}) {

@@ -9,6 +9,7 @@ const CustomButton = styled.a`
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  text-align: center;
   &:hover {
     background-color: ${props => props.theme.colors.primaryHovered};
     transform: translateY(-2px);

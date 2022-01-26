@@ -1,11 +1,10 @@
 import {PhoneAnimation} from "../MagicMaxi/PhoneAnimation";
 import styled from "@emotion/styled";
 import React, {useEffect} from "react";
-import {gsap} from "gsap";
-import StyledButton from "../Button";
 import {WebAppAnimation} from "../MagicMaxi/WebAppAnimation";
+import Link from "next/link";
 
-const AnimationContainer = styled.div`
+const AnimationContainer = styled.a`
     height: 100%;
     display: flex;
     justify-content: center;
@@ -67,18 +66,6 @@ const ProjectDescription = styled.p`
     weight: 100;
 `
 
-// const Hint = styled.p`
-//     opacity: 0;
-//
-//     max-width: 300px;
-//     font-size: 14px;
-//     text-align: center;
-//     weight: 100;
-//     text-decoration: underline;
-//     color: white;
-//     background: ${props => props.theme.colors.primary};
-// `
-
 export function AnimatedWebappProject({project, canvasId})
 {
 
@@ -103,16 +90,18 @@ export function AnimatedWebappProject({project, canvasId})
         }
     }
 
-    return <AnimationContainer >
-        <WebAppAnimation onTouchStart={() => setHovered(true)} onTouchEnd={() => setHoveredWithTimeOut(false)} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} />
-        <TextOverlay hovered={hovered}>
+    return <Link href={"/projects/" + project.id} passHref>
+        <AnimationContainer >
+            <WebAppAnimation onTouchStart={() => setHovered(true)} onTouchEnd={() => setHoveredWithTimeOut(false)} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} />
+            <TextOverlay hovered={hovered}>
 
-            <ProjectTitle id={"projectTitle" + canvasId}>{activeProject.title}</ProjectTitle>
+                <ProjectTitle id={"projectTitle" + canvasId}>{activeProject.title}</ProjectTitle>
 
-            <ProjectDescription id={"projectDescription" + canvasId}>
-                {activeProject.description}
-            </ProjectDescription>
-        </TextOverlay>
+                <ProjectDescription id={"projectDescription" + canvasId}>
+                    {activeProject.description}
+                </ProjectDescription>
+            </TextOverlay>
 
-    </AnimationContainer>
+        </AnimationContainer>
+    </Link>
 }

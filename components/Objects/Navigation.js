@@ -46,17 +46,17 @@ export default function Navigation({scrollProgress = 0}){
     }, [scrollProgress])
 
     return <Nav style={{backdropFilter: scrollProgress > 0.9 ? "blur(10px)" : "unset"}}>
-        <BigLabLogo></BigLabLogo>
+        <Link href="/"><a><BigLabLogo/></a></Link>
         <DesktopNavItemContainer >
             {/*<li>*/}
             {/*    <a href="#">Home</a>*/}
             {/*</li>*/}
-            <li>
-                <Link href="/projects">
-                    <a >Projekte</a>
-                </Link>
+            {/*<li>*/}
+            {/*    <Link href="/projects">*/}
+            {/*        <a >Projekte</a>*/}
+            {/*    </Link>*/}
 
-            </li>
+            {/*</li>*/}
             {/*<li>*/}
             {/*    <a href="#">Über Uns</a>*/}
             {/*</li>*/}

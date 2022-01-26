@@ -12,17 +12,19 @@ const Container = styled.div`
 const ImagesContainer = styled.div`
  margin: 5rem 0;
  display: grid;
- grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
- gap: 5rem;
+ grid-template-columns: repeat(auto-fit, 210px);
+ gap: 3rem;
  
    ${regularMobileMediaQuery} {
-    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-content: center;
   }
 `
 
 const EmployeeImageWrapper = styled.div`
-    height: 15rem;
-    width: 15rem;
+    height: 210px;
+    width: 210px;
+     
     position: relative;
     overflow: hidden;
     display: flex;
@@ -32,30 +34,25 @@ const EmployeeImageWrapper = styled.div`
   border-radius: 38px;
   flex-shrink: 0; 
   
- ${regularMobileMediaQuery} {
-        width: calc(100vw - 2rem);
-        height: calc(100vw - 2rem);
-        
-    }
+ 
     
 `
 
 const EmployeeWrapper = styled.div`
-    display: flex;
+   
     max-width: 50rem;
     width: 100%;
     gap: 2rem;
     margin: 2rem auto;
     transition: all 0.2s ease-in-out;
+    
     border-radius: 38px;
     
         background: ${props => props.theme.colors.backgroundHovered};
         box-shadow: 0px 2px 61px rgba(0, 0, 0, 0.17), inset 0px 2px 19px rgba(0, 0, 0, 0.25);
     
     
-    &.flipped{
-        flex-direction: row-reverse;
-    }
+  
     
     div{
         padding-right: 1rem;
@@ -70,10 +67,24 @@ const EmployeeWrapper = styled.div`
             padding: 1rem;
         }
     }
+    
+    :hover{
+        transform: scale(1.05);
+        
+        
+         
+    }
+    
 `
 
-const EmployeeName = styled.h3`
-    font-size: 1.5rem;
+const NameWrapper = styled.h3`
+    font-size: 1.1rem;
+    width: 100%;
+    margin: 0;
+    padding: 1rem .5rem;
+    text-align: center;
+    
+    
 `
 
 const EmpNotFound = styled.p`
@@ -98,21 +109,20 @@ export default function AboutUsOverview({employees})
                     <EmployeeImageWrapper key={employee.id}>
                         <Image layout={"fill"} objectFit={"cover"} objectPosition={"top"}  src={`http://localhost:1337${employee.attributes.portrait.data.attributes.url}`}/>
                     </EmployeeImageWrapper>
-                    <div>
-                        <EmployeeName>{employee.attributes.name}</EmployeeName>
-                        <p>{employee.attributes.description}</p>
-                    </div>
+                    <NameWrapper>
+                        {employee.attributes.name}
+                    </NameWrapper>
                 </EmployeeWrapper>
             })}
-            <EmployeeWrapper>
-                <EmployeeImageWrapper>
-                    <EmpNotFound>404</EmpNotFound>
-                </EmployeeImageWrapper>
-                <div>
-                    <EmployeeName>Wir suchen dich!</EmployeeName>
-                    <p>Du bist ein engagierter Frontend-, Backend- oder Fullstack Developer? Dann melde dich bei uns und werde Teil von lab73!</p>
-                </div>
-        </EmployeeWrapper>
+        {/*    <EmployeeWrapper>*/}
+        {/*        <EmployeeImageWrapper>*/}
+        {/*            <EmpNotFound>404</EmpNotFound>*/}
+        {/*        </EmployeeImageWrapper>*/}
+        {/*        <div>*/}
+        {/*            <EmployeeName>Wir suchen dich!</EmployeeName>*/}
+        {/*            <p>Du bist ein engagierter Frontend-, Backend- oder Fullstack Developer? Dann melde dich bei uns und werde Teil von lab73!</p>*/}
+        {/*        </div>*/}
+        {/*</EmployeeWrapper>*/}
         </ImagesContainer>
     </Container>
 }
