@@ -98,7 +98,6 @@ const EmpNotFound = styled.p`
 
 export default function AboutUsOverview({employees})
 {
-    console.log(employees)
 
     return <Container>
        <h2>

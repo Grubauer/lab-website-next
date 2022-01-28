@@ -145,7 +145,7 @@ export class MagicMaxi{
                     console.log(err);
                     reject();
                 }, () => {
-                    console.log('done: ' + self.canvasId);
+
                 }
             );
         });
@@ -205,7 +205,6 @@ export class MagicMaxi{
                 const imageIndex = Math.round(self.imgAmount * event.progress);
                 const img = images[imageIndex !== 0 ? imageIndex - 1: imageIndex].img;
                 self.drawImage(img);
-                console.log(imageIndex)
             }
         });
     }
@@ -217,7 +216,6 @@ export class MagicMaxi{
     initHover(images) {
         const speed = this.options.speed;
         let currentFrame = this.options.startFrameIndex ? this.options.startFrameIndex : 0;
-        console.log(currentFrame);
         let currentlyHovering = false;
         const self = this;
 

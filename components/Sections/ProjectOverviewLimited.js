@@ -99,7 +99,7 @@ export default function ProjectOverviewLimited({projects})
         {/*<ButtonWrapper>*/}
         {/*    <StyledButton>Mehr entdecken</StyledButton>*/}
         {/*</ButtonWrapper>*/}
-        <Spacer/>
+
 
 
 

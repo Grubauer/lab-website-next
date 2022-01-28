@@ -56,6 +56,7 @@ const Title = styled.h1`
 
 const Description = styled.p`
     max-width: 35rem;
+    margin-bottom: 1.5rem;
     ${tabletMediaQuery} {
         font-size: 1rem;
     }
@@ -94,7 +95,7 @@ export default function Hero({heroContent, heroProject}) {
                     <Description>
                         {heroContent.attributes.description}
                     </Description>
-                    <StyledButton>
+                    <StyledButton href="mailto:office@lab73.at?subject=Projektanfrage">
                         Anfrage
                     </StyledButton>
                 </LeftPart>

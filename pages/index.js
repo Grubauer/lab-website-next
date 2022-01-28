@@ -24,7 +24,6 @@ function Home({projects, employees, heroContent}) {
           <CustomerBar/>
           <ProjectOverviewLimited projects={projects}/>
           <AboutUsOverview employees={employees}/>
-          <Footer/>
       </main>
     </div>
   )

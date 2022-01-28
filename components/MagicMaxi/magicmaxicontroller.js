@@ -12,7 +12,6 @@ export class MagicMaxiController{
         });
 
         magicMaxi.init().then(() => {
-            console.log("magic maxi init");
             this.magicMaxis.find(x => x.magicMaxi === magicMaxi).firstImgLoaded = true;
         });
 

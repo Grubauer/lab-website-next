@@ -3,6 +3,7 @@ import {ThemeProvider} from "@emotion/react";
 import Navigation from "../components/Objects/Navigation";
 import {Controller, Scene} from "react-scrollmagic";
 import {useState} from "react";
+import {Footer} from "../components/Sections/Footer";
 
 const theme = {
   colors: {
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }) {
             <>
               <Navigation scrollProgress={progress}/>
               <Component {...pageProps} />
+              <Footer/>
             </>
         }
 
