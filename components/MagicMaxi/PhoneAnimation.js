@@ -18,12 +18,10 @@ const Canvas = styled.canvas`
     ${tabletMediaQuery}{
         height: unset;
         max-width: 100%;
+        max-height: 70vh;
     }
     
-     ${regularMobileMediaQuery}
-   {
-       max-height: 70vh;
-   }
+    
 `
 
 export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canvasId, ...rest}) {

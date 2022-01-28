@@ -42,6 +42,21 @@ export async function fetchAllProjects(){
     });
 }
 
+export async function fetchAllProcedureSections(){
+    return new Promise((resolve, reject) => {
+        // console.log(`${process.env.CMS_URL}projects?${query}`);
+        fetch(`${process.env.CMS_URL}/api/procedure-sections?populate=*`)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                resolve(data.data);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
 export async function fetchProjectWithId(id){
     const query = qs.stringify({
         filters: {

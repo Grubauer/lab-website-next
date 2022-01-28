@@ -18,6 +18,11 @@ const Canvas = styled.canvas`
     ${tabletMediaQuery}{
         height: unset;
         max-width: 100%;
+        
+        transform: scale(1);
+        :hover {
+        transform: scale(1.4) translateY(-5%);
+        }
     }
 `
 

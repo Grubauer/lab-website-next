@@ -13,6 +13,9 @@ const Container = styled.div`
         height: 100vh;
         gap: 5px;
     }
+    &.swapped{
+        flex-direction: row-reverse;
+    }
 `
 
 const TextContainer = styled.div`
@@ -40,9 +43,9 @@ const Description = styled.p`
     
 `
 
-export default function TopicWithImage({title, description, imgSrc, imgAlt, additionalContent}){
+export default function TopicWithImage({title, description, imgSrc, imgAlt, additionalContent, swapped}){
 
-    return <Container>
+    return <Container className={swapped ? "swapped" : ""}>
         <TextContainer>
             <Title>
                 {title}

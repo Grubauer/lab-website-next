@@ -7,11 +7,11 @@ import TopicWithImage from "../Objects/TopicWithImage";
 import {AnimatedWebappProject} from "../Objects/AnimatedWebappProject";
 
 const Container = styled.div`
-    margin: 15rem 0;
+    margin: 5rem 0;
 `
 
 const ProjectsContainer = styled.div`
-    margin: 10rem 0;
+    margin: 0rem 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10rem;
@@ -53,7 +53,7 @@ const ButtonWrapper = styled.div`
 `
 
 const Spacer = styled.div`
-    height: 10rem;
+    height: 8rem;
 `
 
 export default function ProjectOverviewFull({projects})
