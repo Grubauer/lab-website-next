@@ -1,6 +1,6 @@
 import {AnimatedPhoneProject} from "../Objects/AnimatedPhoneProject";
 import styled from "@emotion/styled";
-import {regularMobileMediaQuery, tabletMediaQuery} from "../../media";
+import {desktopMediaQuery, regularMobileMediaQuery, tabletMediaQuery} from "../../media";
 import {useEffect} from "react";
 import StyledButton from "../Button";
 import TopicWithImage from "../Objects/TopicWithImage";
@@ -16,16 +16,24 @@ const ProjectsContainer = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10rem;
     position: relative;
-    
+    ${desktopMediaQuery}{
+        &.webapp{
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+    }
+     
     ${tabletMediaQuery}
     {
         grid-template-columns: 1fr;
         gap: 10rem;
+        margin: 5rem 0;
     }
     
     > * {
         z-index: 2;
     }
+    
+   
     
 `
 
@@ -74,13 +82,14 @@ export default function ProjectOverviewFull({projects})
         <ProjectsContainer>
             {getProjectsFromCategory("App").map(project => <AnimatedPhoneProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
-        <ProjectsContainer>
+        <ProjectsContainer className="webapp">
             {/*<BackgroundText>APPS</BackgroundText>*/}
             {getProjectsFromCategory("Webapp").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
+            {getProjectsFromCategory("Website").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
         <ProjectsContainer>
             {/*<BackgroundText>APPS</BackgroundText>*/}
-            {getProjectsFromCategory("Website").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
+
         </ProjectsContainer>
     </Container>
 }
