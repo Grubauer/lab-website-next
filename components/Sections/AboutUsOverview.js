@@ -4,13 +4,14 @@ import {regularMobileMediaQuery, tabletMediaQuery} from "../../media";
 import {useEffect} from "react";
 import Image from "next/image";
 import StyledButton from "../Button";
+import TopicWithImage from "../Objects/TopicWithImage";
 
 const Container = styled.div`
     margin: 10rem 0;
 `
 
 const ImagesContainer = styled.div`
- margin: 5rem 0;
+ margin: 2rem 0;
  display: grid;
  grid-template-columns: repeat(auto-fit, 210px);
  gap: 3rem;
@@ -101,13 +102,13 @@ export default function AboutUsOverview({employees})
 
     return <Container>
        <h2>
-           Ein eingespieltes <span className="primaryColorSpan">Team</span>
+           Ein eingespieltes <span className="primaryColorSpan">Team.</span>
        </h2>
         <ImagesContainer>
             {employees.map((employee, i) => {
-                return <EmployeeWrapper>
-                    <EmployeeImageWrapper key={employee.id}>
-                        <Image layout={"fill"} objectFit={"cover"} objectPosition={"top"}  src={`http://localhost:1337${employee.attributes.portrait.data.attributes.url}`}/>
+                return <EmployeeWrapper key={employee.id}>
+                    <EmployeeImageWrapper >
+                        <Image layout={"fill"} objectFit={"cover"} objectPosition={"top"}  src={`http://178.128.196.79:1337${employee.attributes.portrait.data.attributes.url}`}/>
                     </EmployeeImageWrapper>
                     <NameWrapper>
                         {employee.attributes.name}
@@ -124,5 +125,11 @@ export default function AboutUsOverview({employees})
         {/*        </div>*/}
         {/*</EmployeeWrapper>*/}
         </ImagesContainer>
+
+        <TopicWithImage
+            title={<span>Werde auch <span className="primaryColorSpan">du</span><br/> ein Teil von <span className="primaryColorSpan">lab73.</span></span>}
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non id tempus, convallis nisl pretium elementum vitae et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            imgSrc={"/assets/jobs_illustration.png"}
+        />
     </Container>
 }

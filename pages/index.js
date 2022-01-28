@@ -9,6 +9,7 @@ import {PhoneAnimation} from "../components/MagicMaxi/PhoneAnimation";
 import ProjectOverviewLimited from "../components/Sections/ProjectOverviewLimited";
 import {fetchEmployees, fetchHeroContent, fetchIndexPageProjects} from "../helper/cms-helper";
 import AboutUsOverview from "../components/Sections/AboutUsOverview";
+import {Footer} from "../components/Sections/Footer";
 
 function Home({projects, employees, heroContent}) {
   return (
@@ -23,6 +24,7 @@ function Home({projects, employees, heroContent}) {
           <CustomerBar/>
           <ProjectOverviewLimited projects={projects}/>
           <AboutUsOverview employees={employees}/>
+          <Footer/>
       </main>
     </div>
   )

@@ -58,12 +58,6 @@ const Spacer = styled.div`
 
 export default function ProjectOverviewLimited({projects})
 {
-    const appProjects = ["juksel", "partytime"]
-
-    useEffect(() => {
-        console.log(projects)
-    }, [])
-
     function getProjectsFromCategory(category)
     {
         return projects.filter(project => project.attributes.type === category)
@@ -85,12 +79,12 @@ export default function ProjectOverviewLimited({projects})
         </ProjectsContainer>
 
 
-        <ButtonWrapper>
-            <Link href={"/projects"} passHref>
-                <StyledButton>Mehr entdecken</StyledButton>
-            </Link>
+        {/*<ButtonWrapper>*/}
+        {/*    <Link href={"/projects"} passHref>*/}
+        {/*        <StyledButton>Mehr entdecken</StyledButton>*/}
+        {/*    </Link>*/}
 
-        </ButtonWrapper>
+        {/*</ButtonWrapper>*/}
         <Spacer/>
 
         <TopicWithImage
@@ -102,8 +96,12 @@ export default function ProjectOverviewLimited({projects})
             {/*<BackgroundText>APPS</BackgroundText>*/}
             {getProjectsFromCategory("Webapp").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
-        <ButtonWrapper>
-            <StyledButton>Mehr entdecken</StyledButton>
-        </ButtonWrapper>
+        {/*<ButtonWrapper>*/}
+        {/*    <StyledButton>Mehr entdecken</StyledButton>*/}
+        {/*</ButtonWrapper>*/}
+        <Spacer/>
+
+
+
     </Container>
 }

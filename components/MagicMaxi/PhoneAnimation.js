@@ -28,7 +28,7 @@ const Canvas = styled.canvas`
 
 export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canvasId, ...rest}) {
 
-    const animationSources = activeProject.animation.data.map(data => `http://localhost:1337${data.attributes.url}`)
+    const animationSources = activeProject.animation.data.map(data => `http://178.128.196.79:1337${data.attributes.url}`)
     // const animationSources = activeProject.animation.data.map(data => `${process.env.CMS_URL}${data.attributes.url}`)
     useEffect(() => {
         const filenames = []
