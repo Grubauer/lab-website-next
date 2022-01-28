@@ -8,14 +8,15 @@ const Container = styled.div`
     display: flex;
     height: 30rem;
     gap: 20px;
-    ${regularMobileMediaQuery} {
-        flex-direction: column-reverse;
-        height: 100vh;
-        gap: 5px;
-    }
     &.swapped{
         flex-direction: row-reverse;
     }
+    ${regularMobileMediaQuery} {
+        flex-direction: column-reverse !important;
+        height: 100vh;
+        gap: 0px;
+    }
+    
 `
 
 const TextContainer = styled.div`
@@ -24,14 +25,16 @@ const TextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   ${regularMobileMediaQuery} {
-        flex: 1;
+        flex: 3;
+        justify-content: flex-start;
     }
 `
 const ImageWrapper = styled.div`
     flex: 4;
     position: relative;
     ${regularMobileMediaQuery} {
-        flex: 2;
+        flex: 4;
+        min-height: 15rem;
     }
 `
 

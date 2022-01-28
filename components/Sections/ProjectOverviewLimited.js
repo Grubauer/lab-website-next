@@ -49,7 +49,11 @@ const ButtonWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    
+    gap: 1rem;
+    ${regularMobileMediaQuery}
+    {
+        flex-direction: column;
+    }
 `
 
 const Spacer = styled.div`
@@ -79,12 +83,12 @@ export default function ProjectOverviewLimited({projects})
         </ProjectsContainer>
 
 
-        {/*<ButtonWrapper>*/}
-        {/*    <Link href={"/projects"} passHref>*/}
-        {/*        <StyledButton>Mehr entdecken</StyledButton>*/}
-        {/*    </Link>*/}
+        <ButtonWrapper>
+            <Link href={"/projects"} passHref>
+                <StyledButton>Mehr Projekte</StyledButton>
+            </Link>
 
-        {/*</ButtonWrapper>*/}
+        </ButtonWrapper>
         <Spacer/>
 
         <TopicWithImage
@@ -96,9 +100,15 @@ export default function ProjectOverviewLimited({projects})
             {/*<BackgroundText>APPS</BackgroundText>*/}
             {getProjectsFromCategory("Webapp").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
-        {/*<ButtonWrapper>*/}
-        {/*    <StyledButton>Mehr entdecken</StyledButton>*/}
-        {/*</ButtonWrapper>*/}
+        <ButtonWrapper>
+            <Link href={"/projects"} passHref>
+                <StyledButton>Mehr Projekte</StyledButton>
+            </Link>
+            <Link href={"/procedure"} passHref>
+            <StyledButton>Projektablauf</StyledButton>
+            </Link>
+        </ButtonWrapper>
+
 
 
 

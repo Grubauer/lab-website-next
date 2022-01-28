@@ -3,10 +3,12 @@ import {regularMobileMediaQuery} from "../../media";
 
 const Svg = styled.svg`
     
-  height: 3.5rem;
+  height: 4rem;
+  padding-top: 1rem;
   
   ${regularMobileMediaQuery} {
-    height: 2.5rem;
+    height: 3rem;
+    padding-top: 1rem;
   }
    `
 

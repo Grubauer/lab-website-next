@@ -8,10 +8,6 @@ import {useRouter} from "next/router";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery} from "../../media";
 
-const H1 = styled.h1`
-                    text-align: center;
-                    `
-
 const Container = styled.div`
     height: calc(100vh - 500px);
     display: flex;
@@ -20,6 +16,7 @@ const Container = styled.div`
     ${regularMobileMediaQuery} {
         flex-direction: column-reverse;
         height: 100vh;
+        margin: 0rem 0; 
         gap: 5px;
     }
     &.swapped{
@@ -53,12 +50,11 @@ const Description = styled.p``
 
 
 function Project({project}) {
-
     return (
         <div className={"container"}>
             <Head>
-                <title>Projekt</title>
-                <link rel="icon" href="/favicon.ico" />
+                <title>{project.attributes.title}</title>
+                <meta name="description" content={project.attributes.description}/>
             </Head>
 
             <main>
@@ -74,10 +70,6 @@ function Project({project}) {
                             {project.attributes.description}
                         </Description>
                     </TextContainer>
-
-
-
-
                 </Container>
             </main>
         </div>

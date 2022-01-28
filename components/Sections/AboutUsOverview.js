@@ -1,7 +1,7 @@
 import {AnimatedPhoneProject} from "../Objects/AnimatedPhoneProject";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery, tabletMediaQuery} from "../../media";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import StyledButton from "../Button";
 import TopicWithImage from "../Objects/TopicWithImage";
@@ -98,13 +98,43 @@ const EmpNotFound = styled.p`
 
 export default function AboutUsOverview({employees})
 {
+    const [shuffledEmployees, setShuffledEmployees] = useState([]);
+
+
+    function shuffle(array) {
+        let currentIndex = array.length,  randomIndex;
+
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+
+        return array;
+    }
+
+    useEffect(() => {
+        console.log("shuffle")
+        if(shuffledEmployees.length === 0)
+        {
+            console.log(shuffle(employees))
+            setShuffledEmployees(shuffle(employees));
+        }
+    }, [shuffledEmployees]);
+
 
     return <Container>
        <h2>
            Ein eingespieltes <span className="primaryColorSpan">Team.</span>
        </h2>
         <ImagesContainer>
-            {employees.map((employee, i) => {
+            {shuffledEmployees.map((employee, i) => {
                 return <EmployeeWrapper key={employee.id}>
                     <EmployeeImageWrapper >
                         <Image layout={"fill"} objectFit={"cover"} objectPosition={"top"}  src={`http://178.128.196.79:1337${employee.attributes.portrait.data.attributes.url}`}/>

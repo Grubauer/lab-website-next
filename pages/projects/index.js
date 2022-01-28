@@ -5,9 +5,13 @@ import { Tween, Timeline } from 'react-gsap';
 import ProjectOverviewFull from "../../components/Sections/ProjectOverviewFull";
 import {fetchAllProjects} from "../../helper/cms-helper";
 import styled from "@emotion/styled";
+import {regularMobileMediaQuery} from "../../media";
 
 const Main = styled.main`
     margin-top: 15rem;
+    ${regularMobileMediaQuery} {
+        margin-top: 0;
+    }
 `
 
 const H1 = styled.h1`
@@ -19,7 +23,7 @@ function Projects({projects}) {
         <div className={"container"}>
             <Head>
                 <title>Projekte</title>
-                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content="Entdecke unsere Projekte." />
             </Head>
 
             <Main>

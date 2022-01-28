@@ -3,9 +3,14 @@ import Image from 'next/image'
 import {fetchAllProcedureSections} from "../helper/cms-helper";
 import TopicWithImage from "../components/Objects/TopicWithImage";
 import styled from "@emotion/styled";
+import {regularMobileMediaQuery} from "../media";
 
 const Main = styled.main`
     margin: 10rem 0;
+    
+    ${regularMobileMediaQuery} {
+    margin: 2rem 0;
+  }
 `
 
 function Procedure({sections}) {

@@ -18,7 +18,7 @@ const Nav = styled.nav`
   gap: 10%;
   z-index: 100;
   ${regularMobileMediaQuery} {
-    padding: 1.5rem 1.5rem;
+    padding: 0rem 1.5rem;
   }
  
 `
@@ -51,15 +51,16 @@ export default function Navigation({scrollProgress = 0}){
             {/*<li>*/}
             {/*    <a href="#">Home</a>*/}
             {/*</li>*/}
-            {/*<li>*/}
-            {/*    <Link href="/projects">*/}
-            {/*        <a >Projekte</a>*/}
-            {/*    </Link>*/}
-
-            {/*</li>*/}
-            {/*<li>*/}
-            {/*    <a href="#">Über Uns</a>*/}
-            {/*</li>*/}
+            <li>
+                <Link href="/projects">
+                    <a>Projekte</a>
+                </Link>
+            </li>
+            <li>
+                <Link href="/procedure">
+                    <a>Projektablauf</a>
+                </Link>
+            </li>
         </DesktopNavItemContainer>
     </Nav>
 }
