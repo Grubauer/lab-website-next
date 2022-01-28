@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import React, {useEffect} from "react";
 import Link from "next/link";
+import {regularMobileMediaQuery} from "../../media";
+import BigLabLogo from "../Graphics/FullLabLogo";
 
 const CustomFooter = styled.footer`
     margin-top: 50px;
@@ -11,16 +13,16 @@ const CustomFooter = styled.footer`
 
 const LinkList = styled.ul`
     list-style: none;
-    padding: 0;
-    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    
-    max-width: 30rem;
-    width: 100%;
+    justify-content: space-evenly;
     
     a:hover{
         color: ${props => props.theme.colors.primary};
+    }
+    ${regularMobileMediaQuery}{
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
     }
 `
 
@@ -31,10 +33,19 @@ const CodedWithLove = styled.code`
     text-align: center;
 `
 
+const LabLogo = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
 export function Footer() {
 
 
     return <CustomFooter>
+        <LabLogo>
+            <BigLabLogo/>
+        </LabLogo>
         <LinkList>
             <li><Link href={"impressum"}><a>Impressum</a></Link></li>
             <li><a href="mailto:office@lab73.at">office@lab73.at</a></li>

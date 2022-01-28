@@ -127,7 +127,7 @@ export default function AboutUsOverview({employees})
 
         <TopicWithImage
             title={<span>Werde auch <span className="primaryColorSpan">du</span><br/> ein Teil von <span className="primaryColorSpan">lab73.</span></span>}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non id tempus, convallis nisl pretium elementum vitae et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            description="Wir sind laufend auf der Suche nach engagierten Entwicklern. Du willst teil eines aufstrebenden Startups werden? Dann sende uns noch heute deine Bewerbung!"
             imgSrc={"/assets/jobs_illustration.png"}
         />
     </Container>

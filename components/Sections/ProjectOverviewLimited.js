@@ -66,7 +66,7 @@ export default function ProjectOverviewLimited({projects})
     return <Container>
         <TopicWithImage
             title={<span>Deine <span className="primaryColorSpan">Idee</span> - Deine <span className="primaryColorSpan">App</span></span>}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non id tempus, convallis nisl pretium elementum vitae et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            description="Egal ob Android, iOS oder beides. Sobald unser hauseigener Designer gemeinsam mit dir das Layout festgelegt hat, entwickeln wir Plattformübergreifend an deiner App. Dabei achten wir besonders auf eine Intuitive Bedienung & gute Performance!"
             imgSrc={"/assets/app_idea.png"}
         />
 
@@ -89,7 +89,7 @@ export default function ProjectOverviewLimited({projects})
 
         <TopicWithImage
             title={<span>Webapps. <span className="primaryColorSpan">Volle Funktionalität</span><br/> - egal auf welchem Gerät.</span>}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non id tempus, convallis nisl pretium elementum vitae et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            description="Moderne Webanwendungen können von jedem beliebigen Gerät im Browser aufgerufen werden. Ganz ohne nerviger Installation! Während wir uns auf das Design und eine einfache Bedienung fokussieren, bist du aktiver Teil der Projektentwicklung und kannst dich mit deinen Ideen einbringen."
             imgSrc={"/assets/smartsced_webapp.png"}
         />
         <ProjectsContainer>
