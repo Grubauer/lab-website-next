@@ -38,7 +38,7 @@ const ImageWrapper = styled.div`
     }
 `
 
-const Title = styled.h3`
+const Title = styled.h2`
     font-size: 2rem;
 `
 

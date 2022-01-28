@@ -95,6 +95,9 @@ const EmpNotFound = styled.p`
     color: ${props => props.theme.colors.primary};
     
 `
+const Title = styled.h2`
+    font-size: 2rem;
+`
 
 export default function AboutUsOverview({employees})
 {
@@ -130,9 +133,9 @@ export default function AboutUsOverview({employees})
 
 
     return <Container>
-       <h2>
+       <Title>
            Ein eingespieltes <span className="primaryColorSpan">Team.</span>
-       </h2>
+       </Title>
         <ImagesContainer>
             {shuffledEmployees.map((employee, i) => {
                 return <EmployeeWrapper key={employee.id}>

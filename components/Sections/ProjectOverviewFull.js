@@ -74,10 +74,13 @@ export default function ProjectOverviewFull({projects})
         <ProjectsContainer>
             {getProjectsFromCategory("App").map(project => <AnimatedPhoneProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
-        <Spacer/>
         <ProjectsContainer>
             {/*<BackgroundText>APPS</BackgroundText>*/}
             {getProjectsFromCategory("Webapp").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
+        </ProjectsContainer>
+        <ProjectsContainer>
+            {/*<BackgroundText>APPS</BackgroundText>*/}
+            {getProjectsFromCategory("Website").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
     </Container>
 }

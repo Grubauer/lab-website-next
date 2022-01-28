@@ -59,9 +59,6 @@ function Project({project}) {
 
             <main>
                 <Container>
-                    <ImageWrapper>
-                        {project.attributes.hero_image && <Image alt={"imgAlt"} src={`http://178.128.196.79:1337${project.attributes.hero_image.data.attributes.url}`} layout={"fill"} objectFit={"contain"}/>}
-                    </ImageWrapper>
                     <TextContainer>
                         <Title>
                             {project.attributes.title}
@@ -70,6 +67,9 @@ function Project({project}) {
                             {project.attributes.description}
                         </Description>
                     </TextContainer>
+                    <ImageWrapper>
+                        {project.attributes.hero_image && <Image alt={"imgAlt"} src={`http://178.128.196.79:1337${project.attributes.hero_image.data.attributes.url}`} layout={"fill"} objectFit={"contain"}/>}
+                    </ImageWrapper>
                 </Container>
             </main>
         </div>
