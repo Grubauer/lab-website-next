@@ -27,7 +27,7 @@ export default function Impressum(){
                 <strong>Verleihungsstaat:</strong> Österreich</p>
             <p style={{marginTop: '15px'}}>Quelle: Erstellt mit dem Impressum Generator von <a
                 href="https://www.adsimple.at/" title="AdSimple® Online Marketing und Webdesign" rel="follow noopener"
-                target="_blank">AdSimple®</a> in Kooperation mit <a href="https://www.aboutbusiness.at/" target="_blank"
+                >AdSimple®</a> in Kooperation mit <a href="https://www.aboutbusiness.at/" 
                                                                     rel="follow noopener">aboutbusiness.at</a>
             </p>
             <h2 id="eu-streitschlichtung" className="adsimple-121612556">EU-Streitschlichtung</h2>
@@ -36,7 +36,7 @@ export default function Impressum(){
                 Verbraucher haben die Möglichkeit, Beschwerden an die Online Streitbeilegungsplattform der Europäischen
                 Kommission unter <a className="adsimple-121612556"
                                     href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=DE"
-                                    target="_blank" rel="noopener">http://ec.europa.eu/odr?tid=121612556</a> zu richten.
+                                     rel="noopener">http://ec.europa.eu/odr?tid=121612556</a> zu richten.
                 Die dafür notwendigen Kontaktdaten finden Sie oberhalb in unserem Impressum.</p>
             <p>Wir möchten Sie jedoch darauf hinweisen, dass wir nicht bereit oder verpflichtet sind, an
                 Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
@@ -51,7 +51,7 @@ export default function Impressum(){
             <p>Unsere Webseite enthält Links zu anderen Webseiten für deren Inhalt wir nicht verantwortlich sind.
                 Haftung für verlinkte Websites besteht laut <a className="adsimple-121612556"
                                                                href="https://www.ris.bka.gv.at/Dokument.wxe?Abfrage=Bundesnormen&Dokumentnummer=NOR40025813&tid=121612556"
-                                                               target="_blank" rel="noopener">§ 17 ECG</a> für uns
+                                                                rel="noopener">§ 17 ECG</a> für uns
                 nicht, da wir keine Kenntnis rechtswidriger Tätigkeiten hatten und haben, uns solche Rechtswidrigkeiten
                 auch bisher nicht aufgefallen sind und wir Links sofort entfernen würden, wenn uns Rechtswidrigkeiten
                 bekannt werden.</p>
@@ -105,7 +105,7 @@ export default function Impressum(){
             <p>Wir haben diese Datenschutzerklärung (Fassung 01.01.1970-121612556) verfasst, um Ihnen gemäß der Vorgaben
                 der <a className="adsimple-121612556"
                        href="https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0679&tid=121612556"
-                       target="_blank" rel="noopener">Datenschutz-Grundverordnung (EU) 2016/679</a> zu erklären, welche
+                        rel="noopener">Datenschutz-Grundverordnung (EU) 2016/679</a> zu erklären, welche
                 Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als
                 Besucher dieser Webseite haben.</p>
             <p>Leider liegt es in der Natur der Sache, dass diese Erklärungen sehr technisch klingen, wir haben uns bei
@@ -203,29 +203,29 @@ export default function Impressum(){
                 finden:</p>
             <p>
                 <a className="adsimple-121612556" href="https://support.google.com/chrome/answer/95647?tid=121612556"
-                   target="_blank" rel="noopener noreferrer">Chrome: Cookies in Chrome löschen, aktivieren und
+                    rel="noopener noreferrer">Chrome: Cookies in Chrome löschen, aktivieren und
                     verwalten</a>
             </p>
             <p>
                 <a className="adsimple-121612556"
-                   href="https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=121612556" target="_blank"
+                   href="https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=121612556" 
                    rel="noopener noreferrer">Safari: Verwalten von Cookies und Websitedaten mit Safari</a>
             </p>
             <p>
                 <a className="adsimple-121612556"
                    href="https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=121612556"
-                   target="_blank" rel="noopener noreferrer">Firefox: Cookies löschen, um Daten zu entfernen, die
+                    rel="noopener noreferrer">Firefox: Cookies löschen, um Daten zu entfernen, die
                     Websites auf Ihrem Computer abgelegt haben</a>
             </p>
             <p>
                 <a className="adsimple-121612556"
                    href="https://support.microsoft.com/de-at/help/17442/windows-internet-explorer-delete-manage-cookies?tid=121612556"
-                   target="_blank" rel="noopener noreferrer">Internet Explorer: Löschen und Verwalten von Cookies</a>
+                    rel="noopener noreferrer">Internet Explorer: Löschen und Verwalten von Cookies</a>
             </p>
             <p>
                 <a className="adsimple-121612556"
                    href="https://support.microsoft.com/de-at/help/4027947/windows-delete-cookies?tid=121612556"
-                   target="_blank" rel="noopener noreferrer">Microsoft Edge: Löschen und Verwalten von Cookies</a>
+                    rel="noopener noreferrer">Microsoft Edge: Löschen und Verwalten von Cookies</a>
             </p>
             <p>Falls Sie grundsätzlich keine Cookies haben wollen, können Sie Ihren Browser so einrichten, dass er Sie
                 immer informiert, wenn ein Cookie gesetzt werden soll. So können Sie bei jedem einzelnen Cookie
@@ -238,7 +238,7 @@ export default function Impressum(){
                 unterschiedliche Reaktionen auf diese Richtlinien. In Österreich erfolgte aber die Umsetzung dieser
                 Richtlinie in § 96 Abs. 3 des Telekommunikationsgesetzes (TKG).</p>
             <p>Wenn Sie mehr über Cookies wissen möchten und technische Dokumentationen nicht scheuen, empfehlen wir <a
-                className="adsimple-121612556" href="https://tools.ietf.org/html/rfc6265" target="_blank"
+                className="adsimple-121612556" href="https://tools.ietf.org/html/rfc6265" 
                 rel="nofollow noopener noreferrer">https://tools.ietf.org/html/rfc6265</a>, dem Request for Comments der
                 Internet Engineering Task Force (IETF) namens “HTTP State Management Mechanism”.</p>
             <h2 id="speicherung-persoenlicher-daten" className="adsimple-121612556">Speicherung persönlicher Daten</h2>
@@ -256,7 +256,7 @@ export default function Impressum(){
             <h2 id="rechte-dsgvo" className="adsimple-121612556">Rechte laut Datenschutzgrundverordnung</h2>
             <p>Ihnen stehen laut den Bestimmungen der DSGVO und des österreichischen <a className="adsimple-121612556"
                                                                                         href="https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=121612556"
-                                                                                        target="_blank" rel="noopener">Datenschutzgesetzes
+                                                                                         rel="noopener">Datenschutzgesetzes
                 (DSG)</a> grundsätzlich die folgende Rechte zu:</p>
             <ul className="adsimple-121612556">
                 <li className="adsimple-121612556">Recht auf Berichtigung (Artikel 16 DSGVO)</li>
@@ -290,7 +290,7 @@ export default function Impressum(){
             <p>Wir verwenden https um Daten abhörsicher im Internet zu übertragen (Datenschutz durch
                 Technikgestaltung <a className="adsimple-121612556"
                                      href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE&tid=121612556"
-                                     target="_blank" rel="noopener noreferrer">Artikel 25 Absatz 1 DSGVO</a>). Durch den
+                                      rel="noopener noreferrer">Artikel 25 Absatz 1 DSGVO</a>). Durch den
                 Einsatz von TLS (Transport Layer Security), einem Verschlüsselungsprotokoll zur sicheren
                 Datenübertragung im Internet können wir den Schutz vertraulicher Daten sicherstellen. Sie erkennen die
                 Benutzung dieser Absicherung der Datenübertragung am kleinen Schlosssymbol links oben im Browser und der
@@ -306,21 +306,21 @@ export default function Impressum(){
             <ul className="adsimple-121612556">
                 <li className="adsimple-121612556">Instagram-Datenschutzrichtlinie: <a className="adsimple-121612556"
                                                                                        href="https://help.instagram.com/519522125107875?tid=121612556"
-                                                                                       target="_blank"
+                                                                                       
                                                                                        rel="noopener">https://help.instagram.com/519522125107875</a>
                 </li>
                 <li className="adsimple-121612556">Für YouTube gilt die Google Datenschutzerklärung: <a
                     className="adsimple-121612556" href="https://policies.google.com/privacy?hl=de&tid=121612556"
-                    target="_blank" rel="noopener">https://policies.google.com/privacy?hl=de</a>
+                     rel="noopener">https://policies.google.com/privacy?hl=de</a>
                 </li>
                 <li className="adsimple-121612556">Facebook-Datenrichtline: <a className="adsimple-121612556"
                                                                                href="https://www.facebook.com/about/privacy?tid=121612556"
-                                                                               target="_blank"
+                                                                               
                                                                                rel="noopener">https://www.facebook.com/about/privacy</a>
                 </li>
                 <li className="adsimple-121612556">Twitter Datenschutzrichtlinie: <a className="adsimple-121612556"
                                                                                      href="https://twitter.com/de/privacy?tid=121612556"
-                                                                                     target="_blank"
+                                                                                     
                                                                                      rel="noopener">https://twitter.com/de/privacy</a>
                 </li>
             </ul>
@@ -343,9 +343,9 @@ export default function Impressum(){
                 für eigene Dienste benutzen. Diese Daten können Sie als Person allerdings nicht identifizieren.</p>
             <p>Wenn Sie nicht wollen, dass es zu dieser Datenübertragung kommt, haben Sie immer auch die Möglichkeit
                 Java-Scriptblocker wie beispielsweise <a className="adsimple-121612556"
-                                                         href="https://www.ghostery.com/de/" target="_blank"
+                                                         href="https://www.ghostery.com/de/" 
                                                          rel="follow noopener noreferrer">ghostery.com</a> oder <a
-                    className="adsimple-121612556" href="https://noscript.net/" target="_blank"
+                    className="adsimple-121612556" href="https://noscript.net/" 
                     rel="follow noopener noreferrer">noscript.net</a> zu installieren. Sie können aber auch einfach in
                 Ihrem Browser die Ausführung von JavaScript-Codes deaktivieren. Wenn Sie sich für die Deaktivierung von
                 JavaScript-Codes entscheiden, verändern sich auch die gewohnten Funktionen. So wird beispielsweise eine
@@ -353,21 +353,21 @@ export default function Impressum(){
             <p>StackPath ist aktiver Teilnehmer beim EU-U.S. Privacy Shield Framework, wodurch der korrekte und sichere
                 Datentransfer persönlicher Daten geregelt wird. Mehr Informationen dazu finden Sie auf <a
                     className="adsimple-121612556"
-                    href="https://www.privacyshield.gov/participant?id=a2zt0000000CbahAAC&status=Active" target="_blank"
+                    href="https://www.privacyshield.gov/participant?id=a2zt0000000CbahAAC&status=Active" 
                     rel="follow noopener noreferrer">https://www.privacyshield.gov/participant?id=a2zt0000000CbahAAC&status=Active</a>.<br/>
                 Mehr Informationen zum Datenschutz bei StackPath finden Sie unter <a className="adsimple-121612556"
                                                                                      href="https://www.stackpath.com/legal/privacy-statement/?tid=121612556"
-                                                                                     target="_blank"
+                                                                                     
                                                                                      rel="noopener noreferrer">https://www.stackpath.com/legal/privacy-statement/</a> und
                 zu jQuery unter <a className="adsimple-121612556"
                                    href="https://openjsf.org/wp-content/uploads/sites/84/2019/11/OpenJS-Foundation-Privacy-Policy-2019-11-15.pdf"
-                                   target="_blank"
+                                   
                                    rel="follow noopener noreferrer">https://openjsf.org/wp-content/uploads/sites/84/2019/11/OpenJS-Foundation-Privacy-Policy-2019-11-15.pdf</a>.
             </p>
             <p style={{marginTop: '15px'}}>Quelle: Erstellt mit dem Datenschutz Generator von <a
                 href="https://www.adsimple.at/seo-suchmaschinenoptimierung/" title="AdSimple® Suchmaschinenoptimierung"
-                rel="follow noopener" target="_blank">AdSimple® SEO</a> in Kooperation mit <a
-                href="https://www.aboutbusiness.at/" target="_blank" rel="follow noopener">aboutbusiness.at</a>
+                rel="follow noopener" >AdSimple® SEO</a> in Kooperation mit <a
+                href="https://www.aboutbusiness.at/"  rel="follow noopener">aboutbusiness.at</a>
             </p>        </div>
     </div>
 }
