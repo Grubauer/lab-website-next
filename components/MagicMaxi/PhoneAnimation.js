@@ -3,6 +3,7 @@ import React, {useEffect} from "react";
 import {MagicMaxi} from "./magicmaxi";
 import {regularMobileMediaQuery, tabletMediaQuery} from "../../media";
 import {MagicMaxiController} from "./magicmaxicontroller";
+import {server} from "../../config";
 
 
 const Canvas = styled.canvas`
@@ -26,11 +27,11 @@ const Canvas = styled.canvas`
 
 export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canvasId, ...rest}) {
 
-    const animationSources = activeProject.animation.data.map(data => `http://178.128.196.79:1337${data.attributes.url}`)
+    const animationSources = activeProject.animation.map(data => `${server}${data}`)
     // const animationSources = activeProject.animation.data.map(data => `${process.env.CMS_URL}${data.attributes.url}`)
     useEffect(() => {
         const filenames = []
-
+        console.log(animationSources)
 
         const magicMaxiHover = new MagicMaxi(canvasId,  animationSources, MagicMaxi.modes.HOVER, {speed})
         MagicMaxiController.addMagicMaxi(magicMaxiHover);

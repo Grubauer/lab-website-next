@@ -35,11 +35,11 @@ function Procedure({sections}) {
 
             <Main>
                 {sections.map((section, i) => {
-                    console.log("http://178.128.196.79:1337" + section.attributes.image.data.attributes.url);
+                    console.log(section.attributes.image.data.attributes.url);
                     return <TopicWithImage
                         key={section.id}
                         title={getTitle(section.attributes.title)}
-                        imgSrc={"http://178.128.196.79:1337" + section.attributes.image.data.attributes.url}
+                        imgSrc={section.attributes.image.data.attributes.url}
                         description={section.attributes.description}
                         swapped={i % 2 !== 0}
                     />
@@ -50,10 +50,10 @@ function Procedure({sections}) {
 }
 
 export async function getStaticProps(context) {
-    const sections = await fetchAllProcedureSections();
+    // const sections = await fetchAllProcedureSections();
 
     return {
-        props: {sections}, // will be passed to the page component as props
+        props: {sections: []}, // will be passed to the page component as props
     }
 }
 

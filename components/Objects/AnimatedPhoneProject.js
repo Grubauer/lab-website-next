@@ -149,7 +149,7 @@ export function AnimatedPhoneProject({project, img_count, onPhoneHovered, canvas
        }
     }
 
-    return <Link href={"/projects/" + project.id} passHref>
+    return <Link href={"/projects/" + project.attributes.slug} passHref>
     <AnimationContainer >
         <PhoneAnimation onTouchStart={() => setHovered(true)} onTouchEnd={() => setHoveredWithTimeOut(false)} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} />
         <TextOverlay hovered={hovered}>

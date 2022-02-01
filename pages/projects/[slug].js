@@ -3,10 +3,11 @@ import Image from 'next/image'
 import {Controller, Scene} from "react-scrollmagic";
 import { Tween, Timeline } from 'react-gsap';
 import ProjectOverviewFull from "../../components/Sections/ProjectOverviewFull";
-import {fetchAllProjects, fetchProjectWithId} from "../../helper/cms-helper";
+import {fetchAllProjects, fetchProjectWithSlug} from "../../helper/cms-helper";
 import {useRouter} from "next/router";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery} from "../../media";
+import {server} from "../../config";
 
 const Container = styled.div`
     height: calc(100vh - 500px);
@@ -50,6 +51,7 @@ const Description = styled.p``
 
 
 function Project({project}) {
+    console.log(project.attributes.animation[0])
     return (
         <div className={"container"}>
             <Head>
@@ -68,7 +70,7 @@ function Project({project}) {
                         </Description>
                     </TextContainer>
                     <ImageWrapper>
-                        {project.attributes.hero_image && <Image alt={"imgAlt"} src={`http://178.128.196.79:1337${project.attributes.hero_image.data.attributes.url}`} layout={"fill"} objectFit={"contain"}/>}
+                        <Image alt={"imgAlt"} src={`${project.attributes.animation[0]}`} layout={"fill"} objectFit={"cover"}/>
                     </ImageWrapper>
                 </Container>
             </main>
@@ -79,17 +81,19 @@ function Project({project}) {
 
 export async function getStaticPaths() {
     const allProjects = await fetchAllProjects();
-    console.log(allProjects.map(x => x.id))
+    console.log(allProjects.map(x => ({params: {slug:  x.attributes.slug}})))
     return {
-        paths: allProjects.map(x => "/projects/" + x.id + ""),
+        paths: allProjects.map(x => ({params: {slug:  x.attributes.slug}})),
         fallback: false
     };
 }
 
 export async function getStaticProps({ params }) {
     // Fetch necessary data for the blog post using params.id
-    const projectId = params.id;
-    const project = await fetchProjectWithId(projectId);
+    const projectSlug = params.slug;
+    console.log(projectSlug);
+    const project = await fetchProjectWithSlug(projectSlug);
+
     return {
         props: { project }
     };

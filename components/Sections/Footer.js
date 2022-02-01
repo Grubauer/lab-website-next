@@ -48,7 +48,7 @@ export function Footer() {
             <BigLabLogo/>
         </LabLogo>
         <LinkList>
-            <li><Link href={"impressum"}><a>Impressum</a></Link></li>
+            <li><Link href={"/impressum"}><a>Impressum</a></Link></li>
             <li><a href="mailto:office@lab73.at">office@lab73.at</a></li>
             <li><a href="tel:+436503702288">+43 677 63679695</a></li>
         </LinkList>

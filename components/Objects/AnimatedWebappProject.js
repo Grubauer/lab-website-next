@@ -90,7 +90,7 @@ export function AnimatedWebappProject({project, canvasId})
         }
     }
 
-    return <Link href={"/projects/" + project.id} passHref>
+    return <Link href={"/projects/" + project.attributes.slug} passHref>
         <AnimationContainer >
             <WebAppAnimation onTouchStart={() => setHovered(true)} onTouchEnd={() => setHoveredWithTimeOut(false)} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} canvasId={canvasId} activeProject={activeProject} />
             <TextOverlay hovered={hovered}>

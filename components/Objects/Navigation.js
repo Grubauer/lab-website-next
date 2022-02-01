@@ -56,11 +56,11 @@ export default function Navigation({scrollProgress = 0}){
                     <a>Projekte</a>
                 </Link>
             </li>
-            <li>
-                <Link href="/procedure">
-                    <a>Projektablauf</a>
-                </Link>
-            </li>
+            {/*<li>*/}
+            {/*    <Link href="/procedure">*/}
+            {/*        <a>Projektablauf</a>*/}
+            {/*    </Link>*/}
+            {/*</li>*/}
         </DesktopNavItemContainer>
     </Nav>
 }

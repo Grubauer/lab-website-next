@@ -119,14 +119,12 @@ export class MagicMaxi{
                 })
             ).subscribe(
                 (images) => {
-                    const imgIndexRegex = /.*\_(?<index>\d{1,3})*\_.*\.(png|jpe?g|svg|webp)/;
-
-                    const sortData = (nodeArr) => nodeArr.sort((a,b)=> a.filename.match(imgIndexRegex).groups.index - b.filename.match(imgIndexRegex).groups.index);
+                    const imgIndexRegex = /.* (?<index>\d{1,3}).*\.(png|jpe?g|svg|webp)/;
+                    const sortData = (nodeArr) => nodeArr.sort((a,b)=> a.filename.match(imgIndexRegex)?.groups?.index - b.filename.match(imgIndexRegex)?.groups?.index);
 
                     self.images = sortData(images);
                     const firstImg = images[self.options.startFrameIndex ? self.options.startFrameIndex : 0].img;
                     self.drawImage(firstImg);
-
 
                     switch (self.mode)
                     {

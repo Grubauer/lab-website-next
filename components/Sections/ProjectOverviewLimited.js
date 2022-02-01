@@ -62,6 +62,10 @@ const Spacer = styled.div`
 
 export default function ProjectOverviewLimited({projects})
 {
+
+    useEffect(() => {
+        console.log(projects)
+    }, [])
     function getProjectsFromCategory(category)
     {
         return projects.filter(project => project.attributes.type === category)
@@ -104,9 +108,9 @@ export default function ProjectOverviewLimited({projects})
             <Link href={"/projects"} passHref>
                 <StyledButton>Mehr Projekte</StyledButton>
             </Link>
-            <Link href={"/procedure"} passHref>
-            <StyledButton>Projektablauf</StyledButton>
-            </Link>
+            {/*<Link href={"/procedure"} passHref>*/}
+            {/*<StyledButton>Projektablauf</StyledButton>*/}
+            {/*</Link>*/}
         </ButtonWrapper>
 
 

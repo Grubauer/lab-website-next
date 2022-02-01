@@ -140,10 +140,10 @@ export default function AboutUsOverview({employees})
             {shuffledEmployees.map((employee, i) => {
                 return <EmployeeWrapper key={employee.id}>
                     <EmployeeImageWrapper >
-                        <Image layout={"fill"} objectFit={"cover"} objectPosition={"top"}  src={`http://178.128.196.79:1337${employee.attributes.portrait.data.attributes.url}`}/>
+                        <Image layout={"fill"} objectFit={"cover"} objectPosition={"top"}  src={`${employee.img}`}/>
                     </EmployeeImageWrapper>
                     <NameWrapper>
-                        {employee.attributes.name}
+                        {employee.name}
                     </NameWrapper>
                 </EmployeeWrapper>
             })}
