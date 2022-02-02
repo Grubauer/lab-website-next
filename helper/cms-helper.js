@@ -138,18 +138,18 @@ const projects = [
             featured: true
         }
     },
-    {
-        id: 5,
-        attributes:{
-            title: 'Tischlerei Beyer',
-            slug: 'beyer',
-            description: 'Die Tischlerei Beyer wollte einen neuen modernen Webauftritt, wobei der Fokus auf die handgefertigten Küchen der Tischlerei fallen soll. Wir entschieden uns für ein zeitloses Design mit hohem Wiedererkennungswert.',
-            type: projectTypes.WEBSITE,
-            animation: getAnimationSrcsForProject('beyer'),
-            hero: false,
-            featured: false
-        }
-    },
+    // {
+    //     id: 5,
+    //     attributes:{
+    //         title: 'Tischlerei Beyer',
+    //         slug: 'beyer',
+    //         description: 'Die Tischlerei Beyer wollte einen neuen modernen Webauftritt, wobei der Fokus auf die handgefertigten Küchen der Tischlerei fallen soll. Wir entschieden uns für ein zeitloses Design mit hohem Wiedererkennungswert.',
+    //         type: projectTypes.WEBSITE,
+    //         animation: getAnimationSrcsForProject('beyer'),
+    //         hero: false,
+    //         featured: false
+    //     }
+    // },
     // {
     //     id: 6,
     //     attributes:{
