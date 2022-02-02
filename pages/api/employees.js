@@ -5,7 +5,7 @@ export default function handler(req, res) {
     res.status(200).json(employees)
 }
 
-const employees = [
+export const employees = [
     {
         id: 1,
         name: 'David Gangl',

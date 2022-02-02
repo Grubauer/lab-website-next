@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {Controller, Scene} from "react-scrollmagic";
 import { Tween, Timeline } from 'react-gsap';
 import ProjectOverviewFull from "../../components/Sections/ProjectOverviewFull";
-import {fetchAllProjects, fetchProjectWithSlug} from "../../helper/cms-helper";
+import {getAllProjects, getProjectWithSlug} from "../../helper/cms-helper";
 import {useRouter} from "next/router";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery} from "../../media";
@@ -80,7 +80,7 @@ function Project({project}) {
 
 
 export async function getStaticPaths() {
-    const allProjects = await fetchAllProjects();
+    const allProjects = getAllProjects();
     console.log(allProjects.map(x => ({params: {slug:  x.attributes.slug}})))
     return {
         paths: allProjects.map(x => ({params: {slug:  x.attributes.slug}})),
@@ -92,7 +92,7 @@ export async function getStaticProps({ params }) {
     // Fetch necessary data for the blog post using params.id
     const projectSlug = params.slug;
     console.log(projectSlug);
-    const project = await fetchProjectWithSlug(projectSlug);
+    const project = getProjectWithSlug(projectSlug);
 
     return {
         props: { project }

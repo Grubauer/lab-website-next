@@ -1,4 +1,6 @@
 import {server} from "../config";
+import {projects} from "../pages/api/projects";
+import {employees} from "../pages/api/employees";
 
 const qs = require('qs');
 
@@ -47,6 +49,26 @@ export async function fetchEmployees(){
         const data = await response.json();
         resolve(data);
     });
+}
+
+export function getAllProjects()
+{
+    return projects;
+}
+
+export function getIndexPageProjects()
+{
+    return projects.filter(project => project.attributes.featured || project.attributes.hero);
+}
+
+export function getProjectWithSlug(slug)
+{
+    return projects.find(project => project.attributes.slug === slug);
+}
+
+export function getEmployees()
+{
+    return employees;
 }
 
 // export async function fetchHeroContent()

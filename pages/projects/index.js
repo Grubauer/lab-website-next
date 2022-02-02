@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {Controller, Scene} from "react-scrollmagic";
 import { Tween, Timeline } from 'react-gsap';
 import ProjectOverviewFull from "../../components/Sections/ProjectOverviewFull";
-import {fetchAllProjects} from "../../helper/cms-helper";
+import {getAllProjects} from "../../helper/cms-helper";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery} from "../../media";
 
@@ -35,7 +35,7 @@ function Projects({projects}) {
 }
 
 export async function getStaticProps(context) {
-    const projects = await fetchAllProjects();
+    const projects = getAllProjects();
     return {
         props: {projects}, // will be passed to the page component as props
     }

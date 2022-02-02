@@ -9,7 +9,7 @@ import {PhoneAnimation} from "../components/MagicMaxi/PhoneAnimation";
 import ProjectOverviewLimited from "../components/Sections/ProjectOverviewLimited";
 import AboutUsOverview from "../components/Sections/AboutUsOverview";
 import {Footer} from "../components/Sections/Footer";
-import {fetchEmployees, fetchIndexPageProjects} from "../helper/cms-helper";
+import {getEmployees, getIndexPageProjects} from "../helper/cms-helper";
 
 function Home({projects, employees, heroContent}) {
   return (
@@ -35,8 +35,8 @@ function Home({projects, employees, heroContent}) {
 }
 
 export async function getStaticProps(context) {
-    const projects = await fetchIndexPageProjects();
-    const employees = await fetchEmployees();
+    const projects = getIndexPageProjects();
+    const employees = getEmployees();
 
 
     // const heroContent = await fetchHeroContent();
