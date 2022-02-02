@@ -34,7 +34,7 @@ function Procedure({sections}) {
 
             <Main>
                 {sections.map((section, i) => {
-                    console.log(section.attributes.image.data.attributes.url);
+                    // console.log(section.attributes.image.data.attributes.url);
                     return <TopicWithImage
                         key={section.id}
                         title={getTitle(section.attributes.title)}

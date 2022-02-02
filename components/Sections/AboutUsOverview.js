@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import Image from "next/image";
 import StyledButton from "../Button";
 import TopicWithImage from "../Objects/TopicWithImage";
+import {MagicMaxiController} from "../MagicMaxi/magicmaxicontroller";
 
 const Container = styled.div`
     margin: 10rem 0;
@@ -54,11 +55,7 @@ const EmployeeWrapper = styled.div`
     
     
   
-    
-    div{
-        padding-right: 1rem;
-        padding-bottom: 1rem;
-    }
+
     
      ${regularMobileMediaQuery} {
         flex-direction: column;
@@ -123,7 +120,7 @@ export default function AboutUsOverview({employees})
     }
 
     useEffect(() => {
-        console.log("shuffle")
+        // console.log("shuffle")
         if(shuffledEmployees.length === 0)
         {
             console.log(shuffle(employees))
@@ -131,6 +128,11 @@ export default function AboutUsOverview({employees})
         }
     }, [shuffledEmployees]);
 
+    useEffect(() => {
+        employees.forEach(employee => {
+            MagicMaxiController.addNormalImage(employee.name)
+        });
+    }, []);
 
     return <Container>
        <Title>
@@ -140,7 +142,7 @@ export default function AboutUsOverview({employees})
             {shuffledEmployees.map((employee, i) => {
                 return <EmployeeWrapper key={employee.id}>
                     <EmployeeImageWrapper >
-                        <Image layout={"fill"} objectFit={"cover"} objectPosition={"top"}  src={`${employee.img}`}/>
+                        <Image onLoad={() => MagicMaxiController.setLoadedStatusForNormalImage(employee.name)} alt={employee.name} priority={true} width={550} height={550} objectPosition={"top"} src={`${employee.img}`}/>
                     </EmployeeImageWrapper>
                     <NameWrapper>
                         {employee.name}

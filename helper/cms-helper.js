@@ -106,18 +106,7 @@ const projects = [
             featured: true
         }
     },
-    {
-        id: 2,
-        attributes:{
-            title: 'INA',
-            slug: 'ina',
-            description: 'Eine revolutionierende App für Feuerwehren, mit deren Hilfe Alarmierungen empfangen werden können, und zusätzlich schon genaue Infos zum Einsatz mitgeteilt werden. Zeitgleich mit der Alarmierung wird im Feuerwehrhaus ein Drucker gestartet, welcher eine A4 Seite mit Landkarte und Einsatzinformationen druckt. Des Weiteren können Übungen und Co. über die App geplant werden.',
-            type: projectTypes.APP,
-            animation: getAnimationSrcsForProject('ina'),
-            hero: false,
-            featured: true
-        }
-    },
+
     {
         id: 3,
         attributes:{
@@ -186,6 +175,18 @@ const projects = [
             description: 'Um unser Projekt-Management zu verbessern, haben wir ein eigenes Tool entwickelt: System73. Dieses dient nicht nur als unser CRM, sondern übernimmt auch die Rechnungserstellung und Zeitaufzeichnung.',
             type: projectTypes.WEBAPP,
             animation: getAnimationSrcsForProject('system'),
+            hero: false,
+            featured: false
+        }
+    },
+    {
+        id: 9,
+        attributes:{
+            title: 'INA',
+            slug: 'ina',
+            description: 'Eine revolutionierende App für Feuerwehren, mit deren Hilfe Alarmierungen empfangen werden können, und zusätzlich schon genaue Infos zum Einsatz mitgeteilt werden. Zeitgleich mit der Alarmierung wird im Feuerwehrhaus ein Drucker gestartet, welcher eine A4 Seite mit Landkarte und Einsatzinformationen druckt. Des Weiteren können Übungen und Co. über die App geplant werden.',
+            type: projectTypes.APP,
+            animation: getAnimationSrcsForProject('ina'),
             hero: false,
             featured: false
         }

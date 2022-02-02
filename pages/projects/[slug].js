@@ -48,7 +48,7 @@ const Description = styled.p``
 
 
 function Project({project}) {
-    console.log(project.attributes.animation[0])
+    // console.log(project.attributes.animation[0])
     return (
         <div className={"container"}>
             <Head>
@@ -78,7 +78,7 @@ function Project({project}) {
 
 export async function getStaticPaths() {
     const allProjects = getAllProjectSlugs();
-    console.log(allProjects.map(x => ({params: {slug:  x}})))
+    // console.log(allProjects.map(x => ({params: {slug:  x}})))
     return {
         paths: allProjects.map(x => ({params: {slug:  x}})),
         fallback: false
@@ -88,7 +88,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
     // Fetch necessary data for the blog post using params.id
     const projectSlug = params.slug;
-    console.log(projectSlug);
+    // console.log(projectSlug);
     const project = getProjectWithSlug(projectSlug);
 
     return {

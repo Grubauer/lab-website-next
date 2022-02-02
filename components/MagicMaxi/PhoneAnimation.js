@@ -31,7 +31,7 @@ export function PhoneAnimation({activeProject, speed = 25, img_count = 26, canva
     // const animationSources = activeProject.animation.data.map(data => `${process.env.CMS_URL}${data.attributes.url}`)
     useEffect(() => {
         const filenames = []
-        console.log(animationSources)
+        // console.log(animationSources)
 
         const magicMaxiHover = new MagicMaxi(canvasId,  animationSources, MagicMaxi.modes.HOVER, {speed})
         MagicMaxiController.addMagicMaxi(magicMaxiHover);
