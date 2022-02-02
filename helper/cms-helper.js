@@ -55,6 +55,10 @@ export function getAllProjects()
     return projects;
 }
 
+export function getAllProjectSlugs(){
+    return projects.map(project => project.attributes.slug);
+}
+
 export function getIndexPageProjects()
 {
     return projects.filter(project => project.attributes.featured || project.attributes.hero);

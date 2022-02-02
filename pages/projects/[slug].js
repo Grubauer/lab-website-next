@@ -1,9 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import {Controller, Scene} from "react-scrollmagic";
-import { Tween, Timeline } from 'react-gsap';
-import ProjectOverviewFull from "../../components/Sections/ProjectOverviewFull";
-import {getAllProjects, getProjectWithSlug} from "../../helper/cms-helper";
+import {getAllProjectSlugs, getProjectWithSlug} from "../../helper/cms-helper";
 import {useRouter} from "next/router";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery} from "../../media";
@@ -80,10 +77,10 @@ function Project({project}) {
 
 
 export async function getStaticPaths() {
-    const allProjects = getAllProjects();
-    console.log(allProjects.map(x => ({params: {slug:  x.attributes.slug}})))
+    const allProjects = getAllProjectSlugs();
+    console.log(allProjects.map(x => ({params: {slug:  x}})))
     return {
-        paths: allProjects.map(x => ({params: {slug:  x.attributes.slug}})),
+        paths: allProjects.map(x => ({params: {slug:  x}})),
         fallback: false
     };
 }
