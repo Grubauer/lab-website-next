@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import {fetchAllProcedureSections} from "../helper/cms-helper";
 import TopicWithImage from "../components/Objects/TopicWithImage";
 import styled from "@emotion/styled";
 import {regularMobileMediaQuery} from "../media";
