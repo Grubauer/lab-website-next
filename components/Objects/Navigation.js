@@ -31,6 +31,10 @@ const DesktopNavItemContainer = styled.ul`
     align-items: center;
     flex: 1;
     
+    a:hover{
+        color: ${props => props.theme.colors.primary};
+    }
+    
     
     
     
@@ -56,11 +60,17 @@ export default function Navigation({scrollProgress = 0}){
                     <a>Projekte</a>
                 </Link>
             </li>
-            {/*<li>*/}
-            {/*    <Link href="/procedure">*/}
-            {/*        <a>Projektablauf</a>*/}
-            {/*    </Link>*/}
-            {/*</li>*/}
+            <li>
+                <Link href="/about">
+                    <a>Über Uns</a>
+                </Link>
+            </li>
+            {/*/!*<li>*!/*/}
+            {/*/!*    <Link href="/procedure">*!/*/}
+            {/*/!*        <a>Projektablauf</a>*!/*/}
+            {/*/!*    </Link>*!/*/}
+            {/*/!*</li>*/}
+
         </DesktopNavItemContainer>
     </Nav>
 }

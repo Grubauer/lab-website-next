@@ -25,7 +25,7 @@ export default function BackgroundCircles({showHoverEffect, phoneHovered})
         speed: 500,
         circleThickness: 10,
         idleGrowAnimationSize: 30,
-        idleMaxOpacity: 0.3,
+        idleMaxOpacity: 1,
     }
 
     let circleAnimInterval = null;

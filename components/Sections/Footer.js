@@ -15,8 +15,6 @@ const LinkList = styled.ul`
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    padding: 0;
-    
     a:hover{
         color: ${props => props.theme.colors.primary};
     }

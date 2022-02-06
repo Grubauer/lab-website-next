@@ -40,7 +40,7 @@ export async function getStaticProps(context) {
 
 
     // const heroContent = await fetchHeroContent();
-    const heroContent = {attributes: {description: "Wir von lab73 sind ein Team aus Software-Entwicklern & Designern, dass sich auf die Entwicklung von innovativen und kreativen Kundenprojekten wie Apps und Webapps spezialisiert hat."}};
+    const heroContent = {attributes: {description: "Wir von lab73 sind ein Team aus Software-Entwicklern & Designern, dass sich auf die Entwicklung von innovativen Apps und Webapps spezialisiert hat."}};
     return {
         props: {projects, employees, heroContent}, // will be passed to the page component as props
     }

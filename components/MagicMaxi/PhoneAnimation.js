@@ -13,7 +13,7 @@ const Canvas = styled.canvas`
     
     :hover {
         transform: scale(1.3) translateY(-5%);
-        filter: brightness(0.5);
+        filter: brightness(0.25);
     }
     
     ${tabletMediaQuery}{
