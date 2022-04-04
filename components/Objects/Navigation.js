@@ -55,16 +55,16 @@ export default function Navigation({scrollProgress = 0}){
             {/*<li>*/}
             {/*    <a href="#">Home</a>*/}
             {/*</li>*/}
-            <li>
-                <Link href="/projects">
-                    <a>Projekte</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/about">
-                    <a>Über Uns</a>
-                </Link>
-            </li>
+            {/*<li>*/}
+            {/*    <Link href="/projects">*/}
+            {/*        <a>Projekte</a>*/}
+            {/*    </Link>*/}
+            {/*</li>*/}
+            {/*<li>*/}
+            {/*    <Link href="/about">*/}
+            {/*        <a>Über Uns</a>*/}
+            {/*    </Link>*/}
+            {/*</li>*/}
             {/*/!*<li>*!/*/}
             {/*/!*    <Link href="/procedure">*!/*/}
             {/*/!*        <a>Projektablauf</a>*!/*/}

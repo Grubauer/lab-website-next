@@ -6,6 +6,7 @@ import Image from "next/image";
 import StyledButton from "../Button";
 import TopicWithImage from "../Objects/TopicWithImage";
 import {MagicMaxiController} from "../MagicMaxi/magicmaxicontroller";
+import Link from "next/link";
 
 const Container = styled.div`
     margin: 10rem 0;
@@ -159,7 +160,15 @@ export default function AboutUsOverview({employees})
         {/*        </div>*/}
         {/*</EmployeeWrapper>*/}
         </ImagesContainer>
-
+        <TopicWithImage imgSrc={"/assets/storytime.png"} title={"Eine Geschichtsstunde."} description={"lab73 existierte zuerst unter dem Namen \"LonosGames\", denn ursprünglich wollten wir Spiele entwickeln. Diese Passion kam bereits in der ersten Klasse der HTL auf, als wir im Programmierunterricht anfingen mit \"GreenFoot\" zu programmieren. Mit dieser Entwicklungsumgebung wollten wir das Brettspiel \"Talisman\" digitalisieren. Ein Versuch, der zwar kläglich scheiterte aber der im Endeffekt den Grundstein für unsere weitere Zusammenarbeit legte."}/>
+        <TopicWithImage imgSrc={"/assets/superman.png"} swapped title={"Warum eigentlich lab73?"} description={<span>Da unser Fokus vom Spiele-Entwickeln schnell auf Apps und Websites fiel, brauchten wir einen besseren Namen. Anfangs trafen wir uns in einer kleinen Gartenhütte, in der wir verschiedenste Ideen entwickelten. Diese Gartenhütte wurde von uns liebevoll &quot;lab&quot; wie &quot;laboratories&quot; genannt. Aber warum die 73 dahinter?
+                    <br/>
+                    <br/>
+                    Weil die 73 die beste Zahl ist!
+                    <br/>
+                    <br/>
+                    <Link href="https://bigbangtheory.fandom.com/wiki/73"><a><span className="primaryColorSpan">Hier erfährst du warum.</span></a></Link>
+                </span>}/>
         <TopicWithImage
             title={<span>Werde auch <span className="primaryColorSpan">du</span><br/> ein Teil von <span className="primaryColorSpan">lab73.</span></span>}
             description="Wir sind laufend auf der Suche nach engagierten Entwicklern. Du willst teil eines aufstrebenden Startups werden? Dann sende uns noch heute deine Bewerbung!"

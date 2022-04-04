@@ -87,12 +87,12 @@ export default function ProjectOverviewLimited({projects})
         </ProjectsContainer>
 
 
-        <ButtonWrapper>
-            <Link href={"/projects"} passHref>
-                <StyledButton>Mehr Projekte</StyledButton>
-            </Link>
+        {/*<ButtonWrapper>*/}
+        {/*    <Link href={"/projects"} passHref>*/}
+        {/*        <StyledButton>Mehr Projekte</StyledButton>*/}
+        {/*    </Link>*/}
 
-        </ButtonWrapper>
+        {/*</ButtonWrapper>*/}
         <Spacer/>
 
         <TopicWithImage
@@ -104,14 +104,14 @@ export default function ProjectOverviewLimited({projects})
             {/*<BackgroundText>APPS</BackgroundText>*/}
             {getProjectsFromCategory("Webapp").map(project => <AnimatedWebappProject canvasId={"overview"+project.id} key={project.id} project={project}/>)}
         </ProjectsContainer>
-        <ButtonWrapper>
-            <Link href={"/projects"} passHref>
-                <StyledButton>Mehr Projekte</StyledButton>
-            </Link>
-            {/*<Link href={"/procedure"} passHref>*/}
-            {/*<StyledButton>Projektablauf</StyledButton>*/}
-            {/*</Link>*/}
-        </ButtonWrapper>
+        {/*<ButtonWrapper>*/}
+        {/*    <Link href={"/projects"} passHref>*/}
+        {/*        <StyledButton>Mehr Projekte</StyledButton>*/}
+        {/*    </Link>*/}
+        {/*    /!*<Link href={"/procedure"} passHref>*!/*/}
+        {/*    /!*<StyledButton>Projektablauf</StyledButton>*!/*/}
+        {/*    /!*</Link>*!/*/}
+        {/*</ButtonWrapper>*/}
 
 
 
