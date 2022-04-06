@@ -31,7 +31,7 @@ const CustomerWrapper = styled.li`
 `
 
 const imageDirectory = "/assets/customer_logos/";
-const imgNames = ["docsced_logo", "guntamatic", "sqooter", "surface_logo"]
+const imgNames = ["docsced_logo", "guntamatic", "surface_logo"]
 
 export default function CustomerBar()
 {
